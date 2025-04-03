@@ -53,7 +53,5 @@
 .\output\app_task.o: ..\User\app_uart.h
 .\output\app_task.o: ..\User\APP_DAC.h
 .\output\app_task.o: ..\User\app_adc.h
-.\output\app_task.o: ..\Driver\Drv_lcd.h
-.\output\app_task.o: ..\Driver\LCD\lcd_init.h
-.\output\app_task.o: ..\Driver\LCD\lcd.h
-.\output\app_task.o: ..\User\app_lcd.h
+.\output\app_task.o: ..\User\app_tim.h
+.\output\app_task.o: ..\Driver\drv_i2c_gpio.h

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "main.h": "c",
+        "app_dac.h": "c",
+        "drv_i2c_gpio.h": "c"
+    }
+}

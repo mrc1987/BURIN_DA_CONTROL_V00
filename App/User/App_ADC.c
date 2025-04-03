@@ -249,35 +249,6 @@ void ADC0_1_IRQHandler(void)
 	adc_interrupt_flag_clear(ADC0, ADC_INT_FLAG_EOC);
     
 
-	s32tem =(ADC_Buffer[CH_VP] - ADC_Buffer[CH_VN]);
-	if(ADC_Info.index < ADC_BUF_SIZE)
-	{
-		
-	   ADC_Info.VDIFF_ADC_BUF[ADC_Info.index] = (int16_t)s32tem;
-	   ADC_Info.VP_ADC_BUF[ADC_Info.index]	 = ADC_Buffer[CH_VP];
-	   ADC_Info.VN_ADC_BUF[ADC_Info.index]	 = ADC_Buffer[CH_VN];
-	   ADC_Info.VPN_ADC_BUF[ADC_Info.index]	 = ADC_Buffer[CH_VPN];	
-
-       ADC_Info.index++;
-       ADC_Info.len++;	
-       if(ADC_Info.len > ADC_BUF_SIZE )
-	   {
-         ADC_Info.len = ADC_BUF_SIZE;
-	   }		   
-	}
-	else
-	{
-		ADC_Info.index = 0;
-	}
-
-
-     Vrms_ADC_Filter  = Vrms_ADC_Filter*4045 + 25*s32tem + 25*Vrms_ADC_Pre;//0.9875120932*4096   0.006243953391*4096=25.5
-     VPrms_ADC_Filter = Vrms_ADC_Filter*4045 + 25*ADC_Buffer[CH_VP] + 25*VPrms_ADC_Pre;;
-     VNrms_ADC_Filter = Vrms_ADC_Filter*4045 + 25*ADC_Buffer[CH_VN] + 25*VNrms_ADC_Pre;;
-	 
-	 Vrms_ADC_Pre  = s32tem;
-     VPrms_ADC_Pre = ADC_Buffer[CH_VP];
-     VNrms_ADC_Pre = ADC_Buffer[CH_VN];
 	
  }
 
@@ -292,67 +263,7 @@ void ADC0_1_IRQHandler(void)
 
 void ADC_Process()
 {
-	uint8_t i = 0;
-   int32_t i32VP_Sum;
-   int32_t i32VN_Sum;
-   int32_t i32VPN_Sum;
-   int32_t i32Vdiff_Sum;
-   int32_t s32tem;
 
-    i32VP_Sum = 0;
-    i32VN_Sum = 0;;
-    i32VPN_Sum = 0;
-    i32Vdiff_Sum = 0;
-	
- 
-   for(i = 0; i<  ADC_BUF_SIZE ; i++)
-	{
-		
-	    i32VP_Sum  += ADC_Info.VP_ADC_BUF[i];
-        i32VN_Sum  += ADC_Info.VN_ADC_BUF[i];
-        i32VPN_Sum += ADC_Info.VPN_ADC_BUF[i];
-        i32Vdiff_Sum += ADC_Info.VDIFF_ADC_BUF[i];	
-		
-	}
-
-
-	ADC_Info.VP_ADC_Fliter     = i32VP_Sum>>6; 
-	ADC_Info.VN_ADC_Fliter     = i32VN_Sum>>6; 
-	ADC_Info.VPN_ADC_Filter    = i32VPN_Sum>>6; 
-	ADC_Info.Vdiff_ADC_Filter  = i32Vdiff_Sum>>6;  
-	
-  /**********************VRMS**********************************/
-//	s32tem = (Q10_Vol_K*ADC_Info.Vdiff_ADC_Filter)>>10;
-//	s32tem = (s32tem*gEEP_data.DMM_V_K) + gEEP_data.DMM_V_B;
-
-//	//if(s32tem < 0) s32tem = -s32tem;
-//    ADC_Info.DMM_VRMS = (int16_t)(s32tem>>10);
-
-  /**********************VPRMS****************************/
-	s32tem = (Q10_Vol_K*ADC_Info.VP_ADC_Fliter)>>10;
-    ADC_Info.DMM_VP_RMS = (int16_t)(s32tem>>0);
-
-  /*********************VNRMS**********************************/
-	s32tem = (Q10_Vol_K*ADC_Info.VN_ADC_Fliter)>>10;
-    ADC_Info.DMM_VN_RMS = (int16_t)(s32tem>>0);
-
-  /*********************VPNRMS**********************************/
-	s32tem = (Q10_Vol_K2*ADC_Info.VPN_ADC_Filter)>>10;
-	s32tem = (s32tem*gEEP_data.DMM_V2_K) + gEEP_data.DMM_V2_B;
-    ADC_Info.DMM_VPN_RMS = (int16_t)(s32tem>>10);
-	
-    /**********************VRMS**********************************/
-	s32tem = ADC_Info.DMM_VP_RMS - ADC_Info.DMM_VN_RMS;
-	s32tem = (s32tem*gEEP_data.DMM_V_K) + gEEP_data.DMM_V_B;
-
-    s32tem = (s32tem>>10);
-    ADC_Info.DMM_VRMS = (ADC_Info.DMM_VRMS*3 + s32tem)>>2;
-	
-	/******************************************************************/
-   
-	s32tem = (Q10_Vol_K*(Vrms_ADC_Filter>>12))>>10;
- 	s32tem = (s32tem*gEEP_data.DMM_V_K) + gEEP_data.DMM_V_B;
-	ADC_Info.DMM_VRMS2 = (int16_t)(s32tem>>10);
 }
 
 

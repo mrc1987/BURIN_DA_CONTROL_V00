@@ -14,6 +14,27 @@
  #include "main.h"
 
 
+typedef  volatile unsigned char VU8;
+typedef  volatile signed char VS8;
+typedef  volatile unsigned short VU16;
+typedef  volatile signed short VS16;
+typedef  volatile unsigned long VU32;
+typedef  volatile signed long VS32;
+typedef  volatile signed long long VS64;
+typedef  volatile unsigned long long VU64;
+typedef  volatile float   VF32;
+
+typedef  unsigned char U8;
+typedef  signed char   S8;
+typedef  unsigned short U16;
+typedef  signed short S16;
+typedef  unsigned long U32;
+typedef  signed long     S32;
+typedef  signed long long S64;
+typedef  unsigned long long U64;
+typedef  float              F32;
+
+
  
 //============8位结构定义=======================================
 typedef  union 
@@ -117,21 +138,28 @@ typedef  union
 {
    struct 
     {
-		uint16_t DA1_ONOFF: 1; // 通道1手动控制5V输出开关
-     	uint16_t DA1_5V_ONOFF: 1;    //通道1手动控制DA输出开关
-  		uint16_t DA1_PWM_EN: 1;  //通道1手动控制DA输出PWM开关 
-		uint16_t DA1_OUT_Mode: 1;  //缓慢和直接输出DA   
+		U32 DA1_SoftStart_Flag: 1;      
+		U32 DA2_SoftStart_Flag: 1;    
 
-		uint16_t DA2_ONOFF: 1; // 通道1手动控制5V输出开关
-		uint16_t DA2_5V_ONOFF: 1;    //通道1手动控制DA输出开关
-		uint16_t DA2_PWM_EN: 1;      //通道1手动控制DA输出PWM开关 
-	    uint16_t DA2_OUT_Mode: 1;    //缓慢和直接输出DA   
+		U32 DA1_SoftStart_EN: 1;      
+		U32 DA2_SoftStart_EN: 1;    
 
-		uint16_t DA_AutoMode: 1;    //程序手动/自动切换
+
+		U32 DA1_CNTL_ONOFF: 1;       // 控制DA输出开关
+		U32 DA1_CNTL_5V_ONOFF: 1;    // 控制5V输出开关 
+		U32 DA1_CNTL_PWM_EN: 1;      // 控制DA输出PWM开关 
+		U32 DA1_CNTL_Rise_Mode: 1;    // 缓慢和直接输出DA   
+
+		U32 DA2_CNTL_ONOFF: 1;        // 控制DA输出开关 
+		U32 DA2_CNTL_5V_ONOFF: 1;     // 控制5V输出开关
+		U32 DA2_CNTL_PWM_EN: 1;       // 控制DA输出PWM开关 
+	    U32 DA2_CNTL_Rise_Mode: 1;    // 缓慢和直接输出DA   
+
+		U32 DA_AutoMode: 1;    // 程序手动/自动切换
 
 	}BIT;
   
-  uint16_t all;              //电源标志
+  U32 all;              //电源标志
 }Un_WorkFlag_Def;
 
 
@@ -140,10 +168,15 @@ typedef  struct
 {
   uint16_t  EEPFlag:8; 
 
-  uint16_t  DA1_Out_Mode:2; //缓慢和直接输出DA 
-  uint16_t  DA1_PWM_EN:2;   //输出PWM开关 
-  uint16_t  DA2_Out_Mode:2; //缓慢和直接输出DA 
-  uint16_t  DA2_PWM_EN:2;  //输出PWM开关 
+  uint16_t  DA1_Out_Mode:1; //缓慢和直接输出DA 
+  uint16_t  DA1_PWM_EN:1;   //输出PWM开关 
+  uint16_t  DA1_5V_EN:1;    //5V 开关 
+  uint16_t  DA1_ONOFF:1;    //5V 开关 
+
+  uint16_t  DA2_Out_Mode:1; //缓慢和直接输出DA 
+  uint16_t  DA2_PWM_EN:1;   //输出PWM开关 
+  uint16_t  DA2_5V_EN:1;    //输出PWM开关 
+  uint16_t  DA2_ONOFF:1;    //5V 开关 
 
   uint16_t DA1_V;    // DA1电压值
   uint16_t DA1_FRE;  // DA1频率
@@ -196,25 +229,25 @@ typedef  union
 		uint8_t DA3: 1; 
 		uint8_t DA4: 1;       
 		uint8_t DA5: 1;   
-		uint8_t DA6: 1; 
-		uint8_t DA7: 1;            
+		uint8_t R0: 1; 
+		uint8_t R1: 1;            
 	}BIT;
   
   uint8_t all;              
 }UN_DA_SetFlag_Def;
 
  		
-typedef struct 
-{
-  uint16_t DA1_V; //DA1电压值
-  uint16_t DA1_FRE; //DA1电流值
-  uint16_t DA1_Duty; //DA1电流值
+//typedef struct 
+//{
+//  uint16_t DA1_V; //DA1电压值
+//  uint16_t DA1_FRE; //DA1电流值
+//  uint16_t DA1_Duty; //DA1电流值
 
-  uint16_t DA2_V; //DA1电压值
-  uint16_t DA2_FRE; //DA1电流值
-  uint16_t DA2_Duty; //DA1电流值
+//  uint16_t DA2_V; //DA1电压值
+//  uint16_t DA2_FRE; //DA1电流值
+//  uint16_t DA2_Duty; //DA1电流值
 
-}ST_WorkSpace_def;
+//}ST_WorkSpace_def;
 
 
  
@@ -226,8 +259,8 @@ typedef struct
 	Un_WorkFlag_Def   WorkFlags; //工作标志	
     uint8_t modbus_addr; //modbus地址
 
-	uint16_t DA1_V; //当前 DA1电压值 x100 
-	uint16_t DA2_V; //当前 DA1电压值 x100 
+	S16 DA1_V; //当前 DA1电压值 x100 
+	S16 DA2_V; //当前 DA1电压值 x100 
 }ST_WorkSpace_def;
 
 

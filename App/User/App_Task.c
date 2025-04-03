@@ -38,13 +38,22 @@ uint32_t Work_RUN_ms;
  {
     gEEP_data.EEPFlag =0xA5;
 	 
+    gEEP_data.DA1_V = 5*1024;
+	gEEP_data.DA2_V = 5*1024;
+
+    gEEP_data.DA1_Duty = 50;
+	gEEP_data.DA1_FRE  = 1000;
 	 
-	gEEP_data.DMM_V_B = 0;
-	gEEP_data.DMM_V_K = 1<<10;
+	gEEP_data.DA2_Duty = 50;
+	gEEP_data.DA2_FRE  = 1000;
+	 
+	 
+	gEEP_data.DA1_V_K = 0;
+	gEEP_data.DA1_V_B = 1<<10;
 	 
  
-	gEEP_data.DMM_V2_B = 0;
-	gEEP_data.DMM_V2_K = 1<<10;	 
+	gEEP_data.DA2_V_K = 0;
+	gEEP_data.DA2_V_B = 1<<10;
 
 	 
  }
@@ -234,8 +243,14 @@ void Input_IO_check()
  
 	
 }
-
-void Manu_DA_Setting()
+/**************************************************************************
+*函数名： Manu_CNTL_DAC
+*描述：  
+*返回：
+*说明：
+*
+*****************************************************************************/
+void Manu_CNTL_DAC()
 {
 	//手动设置DA输出电压值
 	if(WorkSpace.WorkFlags.BIT.DA1_5V_ONOFF == 1)
@@ -320,13 +335,44 @@ void Manu_DA_Setting()
 *说明：
 *
 *****************************************************************************/
+void Auto_CNTL_DAC()
+{
+ 
+	WorkSpace.WorkFlags.BIT.DA1_5V_ONOFF = gEEP_data.DA1_5V_EN;
+	WorkSpace.WorkFlags.BIT.DA2_5V_ONOFF = gEEP_data.DA2_5V_EN;
+
+	WorkSpace.WorkFlags.BIT.DA1_CNTL_ONOFF = gEEP_data.DA1_ONOFF;
+	WorkSpace.WorkFlags.BIT.DA1_CNTL_ONOFF = gEEP_data.DA1_ONOFF;
+
+	WorkSpace.WorkFlags.BIT.DA1_CNTL_OUT_Mode = gEEP_data.DA1_Out_Mode;
+	WorkSpace.WorkFlags.BIT.DA2_CNTL_OUT_Mode = gEEP_data.DA2_Out_Mode;
+
+	WorkSpace.WorkFlags.BIT.DA1_CNTL_PWM_EN = gEEP_data.DA1_PWM_EN;
+	WorkSpace.WorkFlags.BIT.DA2_CNTL_PWM_EN = gEEP_data.DA2_PWM_EN;
+
+	/******************************************/
+	WorkSpace.DA1_V = gEEP_data.DA1_V;
+	WorkSpace.DA2_V = gEEP_data.DA2_V;
+ 
+ 
+	
+}	
+
+/**************************************************************************
+*函数名： MainTask_thread_entry
+*描述：  电源检测控制任务
+*返回：
+*说明：
+*
+*****************************************************************************/
 void MainTask_thread_entry(void *parameter)
 {
    while(1)
 	{
 	 
 		rt_thread_delay(10);
-
+		Input_IO_check();
+		ADDR_check();
 	}
 
 }
@@ -340,12 +386,20 @@ void MainTask_thread_entry(void *parameter)
 *****************************************************************************/
 void DA_Task_thread_entry(void *parameter)
 {
+	static uint8_t DA_RunStep = 0;
    while(1)
 	{
 	 
 		rt_thread_delay(5);
-		Input_IO_check();
-		ADDR_check();
+		if(WorkSpace.WorkFlags.BIT.DA_AutoMode == 0)
+		{
+			Manu_CNTL_DAC();//手动控制
+		}
+		else
+		{
+			Auto_CNTL_DAC();//自动控制
+		}
+		DAC_Process();//
 	}
 
 }

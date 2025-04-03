@@ -1,8 +1,212 @@
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'App'
+compiling App_Init.c...
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\User\App_Init.c(115): warning:  #177-D: variable "s32tem"  was declared but never referenced
+  	uint32_t s32tem = 0,i,addr;
+..\User\App_Init.c(115): warning:  #550-D: variable "addr"  was set but never used
+  	uint32_t s32tem = 0,i,addr;
+..\User\App_Init.c(146): warning:  #177-D: variable "s32tem"  was declared but never referenced
+  	uint32_t s32tem = 0,i;
+..\User\App_Init.c: 4 warnings, 2 errors
+compiling App_ADC.c...
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\User\App_ADC.c(341): error:  #136: struct "<unnamed>"  has no field "DMM_V2_K"
+  	s32tem = (s32tem*gEEP_data.DMM_V2_K) + gEEP_data.DMM_V2_B;
+..\User\App_ADC.c(341): error:  #136: struct "<unnamed>"  has no field "DMM_V2_B"
+  	s32tem = (s32tem*gEEP_data.DMM_V2_K) + gEEP_data.DMM_V2_B;
+..\User\App_ADC.c(346): error:  #136: struct "<unnamed>"  has no field "DMM_V_K"
+  	s32tem = (s32tem*gEEP_data.DMM_V_K) + gEEP_data.DMM_V_B;
+..\User\App_ADC.c(346): error:  #136: struct "<unnamed>"  has no field "DMM_V_B"
+  	s32tem = (s32tem*gEEP_data.DMM_V_K) + gEEP_data.DMM_V_B;
+..\User\App_ADC.c(354): error:  #136: struct "<unnamed>"  has no field "DMM_V_K"
+   	s32tem = (s32tem*gEEP_data.DMM_V_K) + gEEP_data.DMM_V_B;
+..\User\App_ADC.c(354): error:  #136: struct "<unnamed>"  has no field "DMM_V_B"
+   	s32tem = (s32tem*gEEP_data.DMM_V_K) + gEEP_data.DMM_V_B;
+..\User\App_ADC.c: 1 warning, 8 errors
+compiling gd32f30x_it.c...
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\gd32f30x_it.c: 1 warning, 2 errors
 compiling App_Task.c...
-linking...
-Program Size: Code=13146 RO-data=1426 RW-data=212 ZI-data=6092  
-FromELF: creating hex file...
-".\output\P1500_APP.axf" - 0 Error(s), 0 Warning(s).
-Build Time Elapsed:  00:00:01
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\User\App_Task.c(42): error:  #136: struct "<unnamed>"  has no field "DMM_V_B"
+  	gEEP_data.DMM_V_B = 0;
+..\User\App_Task.c(43): error:  #136: struct "<unnamed>"  has no field "DMM_V_K"
+  	gEEP_data.DMM_V_K = 1<<10;
+..\User\App_Task.c(46): error:  #136: struct "<unnamed>"  has no field "DMM_V2_B"
+  	gEEP_data.DMM_V2_B = 0;
+..\User\App_Task.c(47): error:  #136: struct "<unnamed>"  has no field "DMM_V2_K"
+  	gEEP_data.DMM_V2_K = 1<<10;	 
+..\User\App_Task.c(105): error:  #136: union "<unnamed>"  has no field "Bit"
+  		WorkSpace.ADDR_Flags.Bit.ADDR1 = 1;
+..\User\App_Task.c(109): error:  #136: union "<unnamed>"  has no field "Bit"
+  		WorkSpace.ADDR_Flags.Bit.ADDR1 = 0;
+..\User\App_Task.c(114): error:  #136: union "<unnamed>"  has no field "Bit"
+  		WorkSpace.ADDR_Flags.Bit.ADDR2 = 1;
+..\User\App_Task.c(118): error:  #136: union "<unnamed>"  has no field "Bit"
+  		WorkSpace.ADDR_Flags.Bit.ADDR2 = 0;
+..\User\App_Task.c(123): error:  #136: union "<unnamed>"  has no field "Bit"
+  		WorkSpace.ADDR_Flags.Bit.ADDR3 = 1;
+..\User\App_Task.c(127): error:  #136: union "<unnamed>"  has no field "Bit"
+  		WorkSpace.ADDR_Flags.Bit.ADDR3 = 0;
+..\User\App_Task.c(132): error:  #136: union "<unnamed>"  has no field "Bit"
+  		WorkSpace.ADDR_Flags.Bit.ADDR4 = 1;
+..\User\App_Task.c(136): error:  #136: union "<unnamed>"  has no field "Bit"
+  		WorkSpace.ADDR_Flags.Bit.ADDR4 = 0;
+..\User\App_Task.c(159): error:  #65: expected a ";"
+  	switch (IO_Select_State&0x03)
+..\User\App_Task.c(182): warning:  #12-D: parsing restarts here after previous syntax error
+           WorkSpace.WorkFlags.BIT.DA2_ONOFF    = S2_IO_IN1;
+..\User\App_Task.c(185): error:  #116: a break statement may only be used within a loop or switch
+  		 break;
+..\User\App_Task.c(157): warning:  #177-D: variable "IO_Read_State"  was declared but never referenced
+  	static uint8_t IO_Read_State = 0;	
+..\User\App_Task.c(187): error:  #169: expected a declaration
+  	   case 2:
+..\User\App_Task.c(291): warning:  #12-D: parsing restarts here after previous syntax error
+   WorkSpace.DA2_V = 0;
+..\User\App_Task.c(292): error:  #169: expected a declaration
+   if(WorkSpace.DA2_SetFlags.BIT.DA0 == 1)
+..\User\App_Task.c(430): warning:  #12-D: parsing restarts here after previous syntax error
+      result = rt_thread_init(&PC_UART_thread, "PC_CAN_thread_entry", PC_UART_thread_entry, RT_NULL,PC_UART_stack, sizeof(PC_UART_stack), 1,5);
+..\User\App_Task.c(431): error:  #169: expected a declaration
+      if(result == RT_EOK)
+..\User\App_Task.c(443): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
+..\User\App_Task.c(14): warning:  #177-D: variable "MainTask_stack"  was declared but never referenced
+   static rt_uint8_t MainTask_stack[512];
+..\User\App_Task.c(16): warning:  #177-D: variable "PC_UART_stack"  was declared but never referenced
+   static rt_uint8_t PC_UART_stack[512];
+..\User\App_Task.c(23): warning:  #177-D: variable "DA_Task_stack"  was declared but never referenced
+   static rt_uint8_t DA_Task_stack[512];
+..\User\App_Task.c: 9 warnings, 19 errors
+compiling main.c...
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\main.c(16): warning:  #177-D: variable "i"  was declared but never referenced
+    uint16_t i,j;
+..\main.c(16): warning:  #177-D: variable "j"  was declared but never referenced
+    uint16_t i,j;
+..\main.c: 3 warnings, 2 errors
+compiling board.c...
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\board.c: 1 warning, 2 errors
+compiling App_Lib.c...
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\User\App_Lib.c: 1 warning, 2 errors
+compiling App_UART.c...
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\User\App_UART.c(68): warning:  #177-D: variable "CalCRC"  was declared but never referenced
+    uint8_t CalCRC;
+..\User\App_UART.c(69): warning:  #177-D: variable "RxCRC"  was declared but never referenced
+    uint8_t RxCRC;
+..\User\App_UART.c(70): warning:  #177-D: variable "CMDCode"  was declared but never referenced
+    uint8_t CMDCode;
+..\User\App_UART.c(71): warning:  #177-D: variable "u16Tem"  was declared but never referenced
+    uint16_t u16Tem;
+..\User\App_UART.c: 5 warnings, 2 errors
+compiling bsp_msg.c...
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\Driver\bsp_msg.c: 1 warning, 2 errors
+compiling modbus_slave.c...
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\User\modbus_slave.c(271): error:  #20: identifier "DMM_Flags" is undefined
+             s32Tem = DMM_Flags.Value;
+..\User\modbus_slave.c(277): error:  #20: identifier "RLY_Flags" is undefined
+              s32Tem = RLY_Flags.Value;
+..\User\modbus_slave.c(284): error:  #20: identifier "IN_Flags" is undefined
+              s32Tem = IN_Flags.Value;
+..\User\modbus_slave.c(292): error:  #136: struct "<unnamed>"  has no field "DMM_V_K"
+  	       s32Tem = gEEP_data.DMM_V_K ;
+..\User\modbus_slave.c(299): error:  #136: struct "<unnamed>"  has no field "DMM_V_B"
+  			s32Tem = gEEP_data.DMM_V_B ;
+..\User\modbus_slave.c(306): error:  #136: struct "<unnamed>"  has no field "DMM_V2_K"
+  			s32Tem = gEEP_data.DMM_V2_K ;
+..\User\modbus_slave.c(313): error:  #136: struct "<unnamed>"  has no field "DMM_V2_B"
+  			s32Tem = gEEP_data.DMM_V2_B ;
+..\User\modbus_slave.c(353): error:  #20: identifier "DMM_Flags" is undefined
+              DMM_Flags.Value = reg_value;
+..\User\modbus_slave.c(359): error:  #20: identifier "RLY_Flags" is undefined
+               RLY_Flags.Value = reg_value;
+..\User\modbus_slave.c(365): error:  #136: struct "<unnamed>"  has no field "DMM_V_K"
+  	       gEEP_data.DMM_V_K  = reg_value ;
+..\User\modbus_slave.c(372): error:  #136: struct "<unnamed>"  has no field "DMM_V_B"
+  			 gEEP_data.DMM_V_B   = reg_value;
+..\User\modbus_slave.c(379): error:  #136: struct "<unnamed>"  has no field "DMM_V2_K"
+  			gEEP_data.DMM_V2_K   = reg_value;
+..\User\modbus_slave.c(386): error:  #136: struct "<unnamed>"  has no field "DMM_V2_B"
+  			gEEP_data.DMM_V2_B  = reg_value ;
+..\User\modbus_slave.c(346): warning:  #550-D: variable "i16Tem"  was set but never used
+  	int16_t i16Tem;
+..\User\modbus_slave.c(514): error:  #20: identifier "RLY_Flags" is undefined
+                 RLY_Flags.Value |= (1<<index);
+..\User\modbus_slave.c(518): error:  #20: identifier "RLY_Flags" is undefined
+  			   RLY_Flags.Value &= ~(1<<index);	
+..\User\modbus_slave.c(535): error:  #20: identifier "DMM_Flags" is undefined
+                 DMM_Flags.Value = (1<<index);
+..\User\modbus_slave.c(539): error:  #20: identifier "DMM_Flags" is undefined
+  			   DMM_Flags.Value = 0;	
+..\User\modbus_slave.c: 2 warnings, 19 errors
+compiling DRV_UART.c...
+..\User\datatype.h(40): error:  #65: expected a ";"
+  typedef  union 
+..\User\datatype.h(53): warning:  #12-D: parsing restarts here after previous syntax error
+  }ByteBitArea;
+..\User\datatype.h(264): error:  #256: invalid redeclaration of type name "ST_WorkSpace_def"  (declared at line 250)
+  }ST_WorkSpace_def;
+..\Driver\DRV_UART.c(322): warning:  #188-D: enumerated type mixed with another type
+     if(RESET != usart_flag_get(UART_PORT, USART_FLAG_PERR|USART_FLAG_FERR|USART_FLAG_NERR))
+..\Driver\DRV_UART.c(324): warning:  #188-D: enumerated type mixed with another type
+         usart_flag_clear(UART_PORT,USART_FLAG_PERR|USART_FLAG_FERR|USART_FLAG_NERR);
+..\Driver\DRV_UART.c: 3 warnings, 2 errors
+".\output\P1500_APP.axf" - 62 Error(s), 31 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:02

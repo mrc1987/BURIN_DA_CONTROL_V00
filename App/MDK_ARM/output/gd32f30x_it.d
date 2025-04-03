@@ -54,7 +54,5 @@
 .\output\gd32f30x_it.o: ..\User\app_uart.h
 .\output\gd32f30x_it.o: ..\User\APP_DAC.h
 .\output\gd32f30x_it.o: ..\User\app_adc.h
-.\output\gd32f30x_it.o: ..\Driver\Drv_lcd.h
-.\output\gd32f30x_it.o: ..\Driver\LCD\lcd_init.h
-.\output\gd32f30x_it.o: ..\Driver\LCD\lcd.h
-.\output\gd32f30x_it.o: ..\User\app_lcd.h
+.\output\gd32f30x_it.o: ..\User\app_tim.h
+.\output\gd32f30x_it.o: ..\Driver\drv_i2c_gpio.h

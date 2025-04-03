@@ -34,7 +34,7 @@ I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_wwdgt.h)(0x619EDA
 I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_misc.h)(0x619EDA71)
 I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_enet.h)(0x619EDA71)
 I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_exmc.h)(0x619EDA71)
-I (..\main.h)(0x67ECE5BC)
+I (..\main.h)(0x67EE3917)
 I (..\systick.h)(0x619EDA71)
 I (..\..\RT-Thread\3.1.5\include\rtthread.h)(0x619EDA72)
 I (..\..\App\rtconfig.h)(0x619EDA71)
@@ -44,21 +44,19 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5E8E3CC2)
 I (..\..\RT-Thread\3.1.5\include\rtservice.h)(0x619EDA72)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (..\User\app_spi.h)(0x62B58E1C)
-I (..\..\App\main.h)(0x67ECE5BC)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
 F (..\main.c)(0x67665FB1)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\main.o --omf_browse .\output\main.crf --depend .\output\main.d)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
 I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
@@ -94,7 +92,7 @@ I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_enet.h)(0x619EDA7
 I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_exmc.h)(0x619EDA71)
 I (..\systick.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E3CC2)
-I (..\main.h)(0x67ECE5BC)
+I (..\main.h)(0x67EE3917)
 I (..\..\RT-Thread\3.1.5\include\rtthread.h)(0x619EDA72)
 I (..\..\App\rtconfig.h)(0x619EDA71)
 I (..\..\RT-Thread\3.1.5\include\rtdebug.h)(0x619EDA72)
@@ -103,21 +101,19 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5E8E3CC2)
 I (..\..\RT-Thread\3.1.5\include\rtservice.h)(0x619EDA72)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (..\User\app_spi.h)(0x62B58E1C)
-I (..\..\App\main.h)(0x67ECE5BC)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
 F (..\systick.c)(0x62B58443)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\systick.o --omf_browse .\output\systick.crf --depend .\output\systick.d)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
 I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
@@ -152,8 +148,8 @@ I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_misc.h)(0x619EDA7
 I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_enet.h)(0x619EDA71)
 I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_exmc.h)(0x619EDA71)
 I (..\systick.h)(0x619EDA71)
-F (..\User\App_ADC.c)(0x6768BC79)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\app_adc.o --omf_browse .\output\app_adc.crf --depend .\output\app_adc.d)
-I (..\..\App\main.h)(0x67ECE5BC)
+F (..\User\App_ADC.c)(0x67EE3BC7)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\app_adc.o --omf_browse .\output\app_adc.crf --depend .\output\app_adc.d)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
 I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -198,19 +194,17 @@ I (..\User\app_spi.h)(0x62B58E1C)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
-F (..\User\App_Init.c)(0x67ECE3E2)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\app_init.o --omf_browse .\output\app_init.crf --depend .\output\app_init.d)
-I (..\..\App\main.h)(0x67ECE5BC)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
+F (..\User\App_Init.c)(0x67EE389A)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\app_init.o --omf_browse .\output\app_init.crf --depend .\output\app_init.d)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
 I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -255,19 +249,17 @@ I (..\User\app_spi.h)(0x62B58E1C)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
-F (..\User\App_Task.c)(0x67ECE64A)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\app_task.o --omf_browse .\output\app_task.crf --depend .\output\app_task.d)
-I (..\..\App\main.h)(0x67ECE5BC)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
+F (..\User\App_Task.c)(0x67EE3B91)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\app_task.o --omf_browse .\output\app_task.crf --depend .\output\app_task.d)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
 I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -312,19 +304,17 @@ I (..\User\app_spi.h)(0x62B58E1C)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
 F (..\User\App_Lib.c)(0x619EDA71)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\app_lib.o --omf_browse .\output\app_lib.crf --depend .\output\app_lib.d)
-I (..\..\App\main.h)(0x67ECE5BC)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
 I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -369,17 +359,15 @@ I (..\User\app_spi.h)(0x62B58E1C)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
 F (..\board.c)(0x619EDA71)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\board.o --omf_browse .\output\board.crf --depend .\output\board.d)
 I (..\..\RT-Thread\3.1.5\include\rthw.h)(0x619EDA72)
 I (..\..\RT-Thread\3.1.5\include\rtthread.h)(0x619EDA72)
@@ -388,7 +376,7 @@ I (..\..\RT-Thread\3.1.5\include\rtdebug.h)(0x619EDA72)
 I (..\..\RT-Thread\3.1.5\include\rtdef.h)(0x619EDA72)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5E8E3CC2)
 I (..\..\RT-Thread\3.1.5\include\rtservice.h)(0x619EDA72)
-I (..\main.h)(0x67ECE5BC)
+I (..\main.h)(0x67EE3917)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
 I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -424,23 +412,21 @@ I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_exmc.h)(0x619EDA7
 I (..\systick.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
 I (..\User\app_spi.h)(0x62B58E1C)
-I (..\..\App\main.h)(0x67ECE5BC)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
 F (..\User\App_UART.c)(0x67682054)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\app_uart.o --omf_browse .\output\app_uart.crf --depend .\output\app_uart.d)
-I (..\..\App\main.h)(0x67ECE5BC)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
 I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -485,21 +471,19 @@ I (..\User\app_spi.h)(0x62B58E1C)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
 I (..\Driver\drv_uart.h)(0x62B1DF96)
 I (..\User\modbus_slave.h)(0x676673A1)
-F (..\User\modbus_slave.c)(0x6768BCAC)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\modbus_slave.o --omf_browse .\output\modbus_slave.crf --depend .\output\modbus_slave.d)
-I (..\..\App\main.h)(0x67ECE5BC)
+F (..\User\modbus_slave.c)(0x67EE3BA6)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\modbus_slave.o --omf_browse .\output\modbus_slave.crf --depend .\output\modbus_slave.d)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
 I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -544,17 +528,15 @@ I (..\User\app_spi.h)(0x62B58E1C)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
 I (..\User\modbus_slave.h)(0x676673A1)
 F (..\..\Library\CMSIS\GD\GD32F30x\Source\system_gd32f30x.c)(0x67663511)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\system_gd32f30x.o --omf_browse .\output\system_gd32f30x.crf --depend .\output\system_gd32f30x.d)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
@@ -1387,8 +1369,8 @@ I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_exmc.h)(0x619EDA7
 F (..\..\Library\CMSIS\GD\GD32F30x\Source\ARM\startup_gd32f30x_hd.s)(0x62B58AC7)(--cpu Cortex-M4.fp.sp -g --apcs=interwork -IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include--pd "__UVISION_VERSION SETA 534" --pd "GD32F30X_HD SETA 1"-o .\output\startup_gd32f30x_hd.o --depend .\output\startup_gd32f30x_hd.d)
 F (..\..\Library\CMSIS\GD\GD32F30x\Source\ARM\startup_gd32f30x_cl.s)(0x619EDA71)()
 F (..\..\Library\CMSIS\GD\GD32F30x\Source\ARM\startup_gd32f30x_xd.s)(0x619EDA71)()
-F (..\Driver\bsp_msg.c)(0x62A04989)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\bsp_msg.o --omf_browse .\output\bsp_msg.crf --depend .\output\bsp_msg.d)
-I (..\..\App\main.h)(0x67ECE5BC)
+F (..\Driver\DRV_eeprom_24xx.c)(0x619EDA71)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\drv_eeprom_24xx.o --omf_browse .\output\drv_eeprom_24xx.crf --depend .\output\drv_eeprom_24xx.d)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
 I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
@@ -1433,17 +1415,70 @@ I (..\User\app_spi.h)(0x62B58E1C)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
+F (..\Driver\bsp_msg.c)(0x62A04989)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\bsp_msg.o --omf_browse .\output\bsp_msg.crf --depend .\output\bsp_msg.d)
+I (..\..\App\main.h)(0x67EE3917)
+I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
+I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
+I (..\..\Library\CMSIS\core_cmInstr.h)(0x619EDA71)
+I (..\..\Library\CMSIS\core_cmFunc.h)(0x619EDA71)
+I (..\..\Library\CMSIS\core_cm4_simd.h)(0x619EDA71)
+I (..\..\Library\CMSIS\GD\GD32F30x\Include\system_gd32f30x.h)(0x619EDA71)
+I (..\..\App\gd32f30x_libopt.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_rcu.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_adc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_can.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_crc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_ctc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_dac.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_dbg.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_dma.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_exti.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_fmc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_fwdgt.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_gpio.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_i2c.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_pmu.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_bkp.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_rtc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_sdio.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_spi.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_timer.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_usart.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_wwdgt.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_misc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_enet.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_exmc.h)(0x619EDA71)
+I (..\..\App\systick.h)(0x619EDA71)
+I (..\..\RT-Thread\3.1.5\include\rtthread.h)(0x619EDA72)
+I (..\..\App\rtconfig.h)(0x619EDA71)
+I (..\..\RT-Thread\3.1.5\include\rtdebug.h)(0x619EDA72)
+I (..\..\RT-Thread\3.1.5\include\rtdef.h)(0x619EDA72)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5E8E3CC2)
+I (..\..\RT-Thread\3.1.5\include\rtservice.h)(0x619EDA72)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
+I (..\User\app_spi.h)(0x62B58E1C)
+I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
+I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
+I (..\User\datatype.h)(0x67EE39C1)
+I (..\User\app_lib.h)(0x619EDA71)
+I (..\Driver\drv_dac.h)(0x62A29E70)
+I (..\Driver\bsp_msg.h)(0x619EDA71)
+I (..\User\app_uart.h)(0x62A14739)
+I (..\User\APP_DAC.h)(0x67EE0654)
+I (..\User\app_adc.h)(0x6768BB82)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
 F (..\Driver\DRV_UART.c)(0x67682010)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\drv_uart.o --omf_browse .\output\drv_uart.crf --depend .\output\drv_uart.d)
 I (..\Driver\DRV_UART.h)(0x62B1DF96)
 I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
@@ -1479,7 +1514,7 @@ I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_misc.h)(0x619EDA7
 I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_enet.h)(0x619EDA71)
 I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_exmc.h)(0x619EDA71)
 I (..\User\modbus_slave.h)(0x676673A1)
-I (..\..\App\main.h)(0x67ECE5BC)
+I (..\..\App\main.h)(0x67EE3917)
 I (..\..\App\systick.h)(0x619EDA71)
 I (..\..\RT-Thread\3.1.5\include\rtthread.h)(0x619EDA72)
 I (..\..\App\rtconfig.h)(0x619EDA71)
@@ -1492,17 +1527,70 @@ I (..\User\app_spi.h)(0x62B58E1C)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
-I (..\User\datatype.h)(0x67658A6B)
+I (..\User\datatype.h)(0x67EE39C1)
 I (..\User\app_lib.h)(0x619EDA71)
 I (..\Driver\drv_dac.h)(0x62A29E70)
 I (..\Driver\bsp_msg.h)(0x619EDA71)
 I (..\User\app_uart.h)(0x62A14739)
-I (..\User\APP_DAC.h)(0x62A2A6AF)
+I (..\User\APP_DAC.h)(0x67EE0654)
 I (..\User\app_adc.h)(0x6768BB82)
-I (..\Driver\Drv_lcd.h)(0x62B1EB98)
-I (..\Driver\LCD\lcd_init.h)(0x62B69C05)
-I (..\Driver\LCD\lcd.h)(0x62B5B953)
-I (..\User\app_lcd.h)(0x62B68532)
+I (..\User\app_tim.h)(0x67EDFAB2)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
+F (..\Driver\DRV_i2c_gpio.c)(0x67EE3985)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\drv_i2c_gpio.o --omf_browse .\output\drv_i2c_gpio.crf --depend .\output\drv_i2c_gpio.d)
+I (..\Driver\drv_i2c_gpio.h)(0x67EE391B)
+I (..\..\App\main.h)(0x67EE3917)
+I (..\..\Library\CMSIS\GD\GD32F30x\Include\gd32f30x.h)(0x676580F2)
+I (..\..\Library\CMSIS\core_cm4.h)(0x619EDA71)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E3CC2)
+I (..\..\Library\CMSIS\core_cmInstr.h)(0x619EDA71)
+I (..\..\Library\CMSIS\core_cmFunc.h)(0x619EDA71)
+I (..\..\Library\CMSIS\core_cm4_simd.h)(0x619EDA71)
+I (..\..\Library\CMSIS\GD\GD32F30x\Include\system_gd32f30x.h)(0x619EDA71)
+I (..\..\App\gd32f30x_libopt.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_rcu.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_adc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_can.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_crc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_ctc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_dac.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_dbg.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_dma.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_exti.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_fmc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_fwdgt.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_gpio.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_i2c.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_pmu.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_bkp.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_rtc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_sdio.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_spi.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_timer.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_usart.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_wwdgt.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_misc.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_enet.h)(0x619EDA71)
+I (..\..\Library\GD32F30x_standard_peripheral\Include\gd32f30x_exmc.h)(0x619EDA71)
+I (..\..\App\systick.h)(0x619EDA71)
+I (..\..\RT-Thread\3.1.5\include\rtthread.h)(0x619EDA72)
+I (..\..\App\rtconfig.h)(0x619EDA71)
+I (..\..\RT-Thread\3.1.5\include\rtdebug.h)(0x619EDA72)
+I (..\..\RT-Thread\3.1.5\include\rtdef.h)(0x619EDA72)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5E8E3CC2)
+I (..\..\RT-Thread\3.1.5\include\rtservice.h)(0x619EDA72)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E8E3CC2)
+I (..\User\app_spi.h)(0x62B58E1C)
+I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
+I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E8E3CC2)
+I (..\User\datatype.h)(0x67EE39C1)
+I (..\User\app_lib.h)(0x619EDA71)
+I (..\Driver\drv_dac.h)(0x62A29E70)
+I (..\Driver\bsp_msg.h)(0x619EDA71)
+I (..\User\app_uart.h)(0x62A14739)
+I (..\User\APP_DAC.h)(0x67EE0654)
+I (..\User\app_adc.h)(0x6768BB82)
+I (..\User\app_tim.h)(0x67EDFAB2)
 F (..\RTT\SEGGER_RTT.c)(0x619EDA71)(-c --cpu Cortex-M4.fp.sp -g -O2 --apcs=interwork --split_sections -I ..\..\Library\CMSIS -I ..\..\Library\CMSIS\GD\GD32F30x\Include -I ..\..\Library\GD32F30x_standard_peripheral\Include -I ..\..\App -I ..\User -I ..\CH395 -I ..\User\Ethernet\W5500 -I ..\User\Ethernet -I ..\RTT -I ..\..\RT-Thread\3.1.5\include -I ..\Driver -I ..\Driver\LCD-IC:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include-D__UVISION_VERSION="534" -DGD32F30X_HD -DUSE_STDPERIPH_DRIVER -DGD32F30X_HD-o .\output\segger_rtt.o --omf_browse .\output\segger_rtt.crf --depend .\output\segger_rtt.d)
 I (..\RTT\SEGGER_RTT.h)(0x619EDA71)
 I (..\RTT\SEGGER_RTT_Conf.h)(0x619EDA71)

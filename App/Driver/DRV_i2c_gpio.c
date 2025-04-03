@@ -19,7 +19,7 @@
 	在访问I2C设备前，请先调用 i2c_CheckDevice() 检测I2C设备是否正常，该函数会配置GPIO
 */
 
-#include "bsp_i2c_gpio.h"
+#include "drv_i2c_gpio.h"
 #include "main.h"
 
 /* 定义I2C总线连接的GPIO端口, 用户只需要修改下面4行代码即可任意改变SCL和SDA的引脚 */

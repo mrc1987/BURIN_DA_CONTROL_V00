@@ -268,13 +268,13 @@ uint8_t MODS_ReadRegValue(uint16_t reg_addr, uint8_t *pReg_value)
 		}	
 		case REG_DMM_RLY: 
 		{
-           s32Tem = DMM_Flags.Value;
+     
 
 		   break;	
 		}	
 	   case REG_RLY: 
 		{
-            s32Tem = RLY_Flags.Value;
+       
 	
  			break;	
 		}	

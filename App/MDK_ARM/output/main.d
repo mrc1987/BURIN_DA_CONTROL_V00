@@ -54,7 +54,5 @@
 .\output\main.o: ..\User\app_uart.h
 .\output\main.o: ..\User\APP_DAC.h
 .\output\main.o: ..\User\app_adc.h
-.\output\main.o: ..\Driver\Drv_lcd.h
-.\output\main.o: ..\Driver\LCD\lcd_init.h
-.\output\main.o: ..\Driver\LCD\lcd.h
-.\output\main.o: ..\User\app_lcd.h
+.\output\main.o: ..\User\app_tim.h
+.\output\main.o: ..\Driver\drv_i2c_gpio.h

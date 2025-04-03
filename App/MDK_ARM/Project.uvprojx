@@ -708,6 +708,11 @@
           <GroupName>Driver</GroupName>
           <Files>
             <File>
+              <FileName>DRV_eeprom_24xx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\DRV_eeprom_24xx.c</FilePath>
+            </File>
+            <File>
               <FileName>bsp_msg.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Driver\bsp_msg.c</FilePath>
@@ -716,6 +721,11 @@
               <FileName>DRV_UART.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Driver\DRV_UART.c</FilePath>
+            </File>
+            <File>
+              <FileName>DRV_i2c_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\DRV_i2c_gpio.c</FilePath>
             </File>
           </Files>
         </Group>

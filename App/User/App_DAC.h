@@ -4,8 +4,18 @@
  #include "main.h"
  
 
-extern   uint16_t u16SetIout_Ref; //设置输出电流
-extern   uint16_t u16SetVout_Ref; //设置输出电压
+
+ #define DAC1_CH    0
+ #define DAC2_CH    1
+
+ #define OFF    0
+ #define ON     1
+
+ #define DA_OUT_PWM_Mode    1
+ #define DA_OUT_LEVEL_Mode  0
+
+ #define DA_SLOW_RISE_Mode    1
+ #define DA_FAST_RISE_Mode    0
 
 void DAC_Process(void);
 #endif

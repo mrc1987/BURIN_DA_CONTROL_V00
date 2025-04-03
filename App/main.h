@@ -20,11 +20,14 @@
 #include "app_uart.h"
 #include "APP_DAC.h"
 #include "app_adc.h"
-#include "Drv_lcd.h"
+//#include "Drv_lcd.h"
 
-#include "lcd_init.h"
-#include "lcd.h"
-#include "app_lcd.h"
+// #include "lcd_init.h"
+// #include "lcd.h"
+// #include "app_lcd.h"
+#include "app_tim.h"
+
+#include "drv_i2c_gpio.h"
 //**********************************************************
 // BootLoader Flash ÐÅÏ¢Çø
 //GD32F305 RB 128K  RC=256K
@@ -133,5 +136,7 @@ void Flash_EEP_Write(void);
 void Flash_EEP_Read(void);
 
 
+void SET_DA1_PWM_Duty(uint16_t SetV);
+void SET_DA2_PWM_Duty(uint16_t SetV);
  
 #endif /* MAIN_H */
