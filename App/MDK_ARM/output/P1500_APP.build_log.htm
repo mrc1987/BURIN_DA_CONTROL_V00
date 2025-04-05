@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: μVision V5.34.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: mrc 532420603@qq.com, stk, LIC=FYKYW-QB1D9-EVN1R-KRJ9Y-YASN4-4KDS7
+License Information: Mi ren, dasdfasdf, LIC=47GU5-GHBQJ-WFEI7-E9NZ6-9JMCE-N46HT
  
 Tool Versions:
 Toolchain:       MDK-ARM Plus  Version: 5.34.0.0
@@ -21,108 +21,26 @@ Target DLL:      CMSIS_AGDI.dll V1.32.13.0
 Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
-D:\项目\联明电源\老化系统DA控制板\BURIN_DA_CONTROL_V00\App\MDK_ARM\Project.uvprojx
+d:\Work\紫蒙\联明双路DA 老化板\BURIN_DA_CONTROL_V00\App\MDK_ARM\Project.uvprojx
 Project File Date:  04/03/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'App'
 compiling modbus_slave.c...
-..\User\modbus_slave.c(284): error:  #20: identifier "IN_Flags" is undefined
-              s32Tem = IN_Flags.Value;
-..\User\modbus_slave.c(292): error:  #136: struct "<unnamed>"  has no field "DMM_V_K"
-  	       s32Tem = gEEP_data.DMM_V_K ;
-..\User\modbus_slave.c(299): error:  #136: struct "<unnamed>"  has no field "DMM_V_B"
-  			s32Tem = gEEP_data.DMM_V_B ;
-..\User\modbus_slave.c(306): error:  #136: struct "<unnamed>"  has no field "DMM_V2_K"
-  			s32Tem = gEEP_data.DMM_V2_K ;
-..\User\modbus_slave.c(313): error:  #136: struct "<unnamed>"  has no field "DMM_V2_B"
-  			s32Tem = gEEP_data.DMM_V2_B ;
-..\User\modbus_slave.c(353): error:  #20: identifier "DMM_Flags" is undefined
-              DMM_Flags.Value = reg_value;
-..\User\modbus_slave.c(359): error:  #20: identifier "RLY_Flags" is undefined
-               RLY_Flags.Value = reg_value;
-..\User\modbus_slave.c(365): error:  #136: struct "<unnamed>"  has no field "DMM_V_K"
-  	       gEEP_data.DMM_V_K  = reg_value ;
-..\User\modbus_slave.c(372): error:  #136: struct "<unnamed>"  has no field "DMM_V_B"
-  			 gEEP_data.DMM_V_B   = reg_value;
-..\User\modbus_slave.c(379): error:  #136: struct "<unnamed>"  has no field "DMM_V2_K"
-  			gEEP_data.DMM_V2_K   = reg_value;
-..\User\modbus_slave.c(386): error:  #136: struct "<unnamed>"  has no field "DMM_V2_B"
-  			gEEP_data.DMM_V2_B  = reg_value ;
-..\User\modbus_slave.c(346): warning:  #550-D: variable "i16Tem"  was set but never used
+..\User\modbus_slave.c(399): warning:  #550-D: variable "i16Tem"  was set but never used
   	int16_t i16Tem;
-..\User\modbus_slave.c(514): error:  #20: identifier "RLY_Flags" is undefined
-                 RLY_Flags.Value |= (1<<index);
-..\User\modbus_slave.c(518): error:  #20: identifier "RLY_Flags" is undefined
-  			   RLY_Flags.Value &= ~(1<<index);	
-..\User\modbus_slave.c(535): error:  #20: identifier "DMM_Flags" is undefined
-                 DMM_Flags.Value = (1<<index);
-..\User\modbus_slave.c(539): error:  #20: identifier "DMM_Flags" is undefined
-  			   DMM_Flags.Value = 0;	
-..\User\modbus_slave.c: 1 warning, 15 errors
-compiling App_Task.c...
-..\User\App_Task.c(114): error:  #136: union "<unnamed>"  has no field "Bit"
-  		WorkSpace.ADDR_Flags.Bit.ADDR1 = 1;
-..\User\App_Task.c(118): error:  #136: union "<unnamed>"  has no field "Bit"
-  		WorkSpace.ADDR_Flags.Bit.ADDR1 = 0;
-..\User\App_Task.c(123): error:  #136: union "<unnamed>"  has no field "Bit"
-  		WorkSpace.ADDR_Flags.Bit.ADDR2 = 1;
-..\User\App_Task.c(127): error:  #136: union "<unnamed>"  has no field "Bit"
-  		WorkSpace.ADDR_Flags.Bit.ADDR2 = 0;
-..\User\App_Task.c(132): error:  #136: union "<unnamed>"  has no field "Bit"
-  		WorkSpace.ADDR_Flags.Bit.ADDR3 = 1;
-..\User\App_Task.c(136): error:  #136: union "<unnamed>"  has no field "Bit"
-  		WorkSpace.ADDR_Flags.Bit.ADDR3 = 0;
-..\User\App_Task.c(141): error:  #136: union "<unnamed>"  has no field "Bit"
-  		WorkSpace.ADDR_Flags.Bit.ADDR4 = 1;
-..\User\App_Task.c(145): error:  #136: union "<unnamed>"  has no field "Bit"
-  		WorkSpace.ADDR_Flags.Bit.ADDR4 = 0;
-..\User\App_Task.c(168): error:  #65: expected a ";"
-  	switch (IO_Select_State&0x03)
-..\User\App_Task.c(191): warning:  #12-D: parsing restarts here after previous syntax error
-           WorkSpace.WorkFlags.BIT.DA2_ONOFF    = S2_IO_IN1;
-..\User\App_Task.c(194): error:  #116: a break statement may only be used within a loop or switch
-  		 break;
-..\User\App_Task.c(166): warning:  #177-D: variable "IO_Read_State"  was declared but never referenced
-  	static uint8_t IO_Read_State = 0;	
-..\User\App_Task.c(196): error:  #169: expected a declaration
-  	   case 2:
-..\User\App_Task.c(300): warning:  #12-D: parsing restarts here after previous syntax error
-   WorkSpace.DA2_V = 0;
-..\User\App_Task.c(301): error:  #169: expected a declaration
-   if(WorkSpace.DA2_SetFlags.BIT.DA0 == 1)
-..\User\App_Task.c(439): warning:  #12-D: parsing restarts here after previous syntax error
-      result = rt_thread_init(&PC_UART_thread, "PC_CAN_thread_entry", PC_UART_thread_entry, RT_NULL,PC_UART_stack, sizeof(PC_UART_stack), 1,5);
-..\User\App_Task.c(440): error:  #169: expected a declaration
-      if(result == RT_EOK)
-..\User\App_Task.c(452): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
-..\User\App_Task.c(14): warning:  #177-D: variable "MainTask_stack"  was declared but never referenced
-   static rt_uint8_t MainTask_stack[512];
-..\User\App_Task.c(16): warning:  #177-D: variable "PC_UART_stack"  was declared but never referenced
-   static rt_uint8_t PC_UART_stack[512];
-..\User\App_Task.c(23): warning:  #177-D: variable "DA_Task_stack"  was declared but never referenced
-   static rt_uint8_t DA_Task_stack[512];
-..\User\App_Task.c: 8 warnings, 13 errors
-compiling DRV_eeprom_24xx.c...
-..\Driver\DRV_eeprom_24xx.c(26): error:  #20: identifier "EE_DEV_ADDR" is undefined
-  	if (i2c_CheckDevice(EE_DEV_ADDR) == 0)
-..\Driver\DRV_eeprom_24xx.c(59): error:  #20: identifier "EE_DEV_ADDR" is undefined
-  	i2c_SendByte(EE_DEV_ADDR | I2C_WR);	/* 此处是写指令 */
-..\Driver\DRV_eeprom_24xx.c(68): error:  #20: identifier "EE_ADDR_BYTES" is undefined
-  	if (EE_ADDR_BYTES == 1)
-..\Driver\DRV_eeprom_24xx.c(156): error:  #20: identifier "EE_PAGE_SIZE" is undefined
-  		if ((i == 0) || (usAddr&(EE_PAGE_SIZE - 1)) == 0)
-..\Driver\DRV_eeprom_24xx.c(170): error:  #20: identifier "EE_DEV_ADDR" is undefined
-  				i2c_SendByte(EE_DEV_ADDR | I2C_WR);	/* 此处是写指令 */
-..\Driver\DRV_eeprom_24xx.c(184): error:  #20: identifier "EE_ADDR_BYTES" is undefined
-  			if (EE_ADDR_BYTES == 1)
-..\Driver\DRV_eeprom_24xx.c: 0 warnings, 6 errors
-compiling App_ADC.c...
-..\User\App_ADC.c(246): warning:  #177-D: variable "s32tem"  was declared but never referenced
-      int32_t s32tem;
-..\User\App_ADC.c: 1 warning, 0 errors
-".\output\P1500_APP.axf" - 34 Error(s), 10 Warning(s).
+..\User\modbus_slave.c(625): warning:  #550-D: variable "value"  was set but never used
+  	uint16_t value;
+..\User\modbus_slave.c(626): warning:  #177-D: variable "index"  was declared but never referenced
+      uint16_t index;
+..\User\modbus_slave.c(725): warning:  #177-D: function "MODS_10H"  was declared but never referenced
+  static void MODS_10H(void)
+..\User\modbus_slave.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=14190 RO-data=1426 RW-data=200 ZI-data=6272  
+FromELF: creating hex file...
+".\output\P1500_APP.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -135,8 +53,7 @@ Package Vendor: GigaDevice
   C:\Users\53242\AppData\Local\Arm\Packs\GigaDevice\GD32F30x_DFP\2.2.1\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

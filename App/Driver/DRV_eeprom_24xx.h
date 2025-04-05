@@ -50,12 +50,11 @@ typedef  struct
 	#define EE_ADDR_BYTES		2			/* 地址字节个数 */
 #endif
 
-#define EEP_Boot_Offset 160
+
 #define EEP_Offset 0
 
-#define EEP_DAC_K_Offset 2
+#define EEP_Boot_Offset 512
 
-#define EEP_DAC_B_Offset 26
 
 uint8_t ee_CheckOk(void);
 uint8_t ee_ReadBytes(uint8_t *_pReadBuf, uint16_t _usAddress, uint16_t _usSize);

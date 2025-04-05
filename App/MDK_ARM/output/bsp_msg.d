@@ -53,5 +53,8 @@
 .\output\bsp_msg.o: ..\User\app_uart.h
 .\output\bsp_msg.o: ..\User\APP_DAC.h
 .\output\bsp_msg.o: ..\User\app_adc.h
+.\output\bsp_msg.o: ..\User\app_eep.h
+.\output\bsp_msg.o: ..\User\app_init.h
 .\output\bsp_msg.o: ..\User\app_tim.h
 .\output\bsp_msg.o: ..\Driver\drv_i2c_gpio.h
+.\output\bsp_msg.o: ..\Driver\DRV_EEPROM_24XX.h

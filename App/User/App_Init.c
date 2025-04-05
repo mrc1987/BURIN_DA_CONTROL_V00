@@ -12,7 +12,7 @@
  
  ST_WorkSpace_def WorkSpace; //工作空间数据	
  //*****************************************************
-ST_EEPStruct       gEEP_data;             //EEP 保存数据
+
 
 
  
@@ -92,11 +92,12 @@ void APP_Init(void)
 	bsp_InitMsg();//初始化消息队列
 	adc_config();//初始化ADC
  
- 
+    bsp_InitI2C();
 	InitEEP();
+	Read_EEP();
 	drv_Timer_Init();
 
-	Flash_EEP_Read();
+	//Flash_EEP_Read();
 }
 
 

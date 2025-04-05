@@ -433,6 +433,21 @@
               <FileType>1</FileType>
               <FilePath>..\User\modbus_slave.c</FilePath>
             </File>
+            <File>
+              <FileName>App_DAC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\App_DAC.c</FilePath>
+            </File>
+            <File>
+              <FileName>App_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\App_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>App_EEP.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\App_EEP.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

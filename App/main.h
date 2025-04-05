@@ -20,6 +20,8 @@
 #include "app_uart.h"
 #include "APP_DAC.h"
 #include "app_adc.h"
+#include "app_eep.h"
+#include "app_init.h"
 //#include "Drv_lcd.h"
 
 // #include "lcd_init.h"
@@ -28,6 +30,9 @@
 #include "app_tim.h"
 
 #include "drv_i2c_gpio.h"
+#include "DRV_EEPROM_24XX.h"
+
+ 
 //**********************************************************
 // BootLoader Flash 信息区
 //GD32F305 RB 128K  RC=256K
@@ -125,18 +130,16 @@ extern  ST_WorkSpace_def WorkSpace; //工作空间数据
 void rt_os_tick_callback(void);
 void delay_1ms(uint32_t T);
 void delay_us(uint32_t T);
-void APP_Init(void);
-void adc_config(void);
-void IO_Check_ISR(void);
+
+ 
 extern void APP_TaskInit(void);
   
  
-void ADC_Process(void);
-void Flash_EEP_Write(void);
-void Flash_EEP_Read(void);
+ 
 
 
 void SET_DA1_PWM_Duty(uint16_t SetV);
 void SET_DA2_PWM_Duty(uint16_t SetV);
- 
+
+
 #endif /* MAIN_H */

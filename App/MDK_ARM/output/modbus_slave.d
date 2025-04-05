@@ -53,6 +53,9 @@
 .\output\modbus_slave.o: ..\User\app_uart.h
 .\output\modbus_slave.o: ..\User\APP_DAC.h
 .\output\modbus_slave.o: ..\User\app_adc.h
+.\output\modbus_slave.o: ..\User\app_eep.h
+.\output\modbus_slave.o: ..\User\app_init.h
 .\output\modbus_slave.o: ..\User\app_tim.h
 .\output\modbus_slave.o: ..\Driver\drv_i2c_gpio.h
+.\output\modbus_slave.o: ..\Driver\DRV_EEPROM_24XX.h
 .\output\modbus_slave.o: ..\User\modbus_slave.h

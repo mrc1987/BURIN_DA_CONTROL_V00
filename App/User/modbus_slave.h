@@ -19,45 +19,42 @@
 *  寄存器地址定义
 *
 ****************************************/
-#define REG_DMM_VRMS	0x0001 
-#define REG_DMM_VP_RMS	0x0002 
-#define REG_DMM_VN_RMS	0x0003 
-#define REG_DMM_VPN_RMS	0x0004 
+#define REG_DA1_ONOFF	            0x0001 
+#define REG_DA1_5V_ONOFF	        0x0002 
+#define REG_DA1_Out_SoftStartEnable	0x0003 
+#define REG_DA1_PWM_Enable      	0x0004
 
-#define REG_IN		    0x0005
-#define REG_DMM_RLY	    0x0006  
-#define REG_RLY		    0x0007
+#define REG_DA1_V	                0x0005 
+#define REG_DA1_PWM_FRE	            0x0006 
+#define REG_DA1_PWM_DUTY    	    0x0007 
+ 
 
-/*****************************************************/
-#define REG_RLY1		0x0000
-#define REG_RLY2		0x0001
-#define REG_RLY3		0x0002
-#define REG_RLY4		0x0003
-#define REG_RLY5		0x0004
-#define REG_RLY6		0x0005
-#define REG_RLY7		0x0006
-#define REG_RLY8		0x0007
+#define REG_DA2_ONOFF	            0x0008 
+#define REG_DA2_5V_ONOFF	        0x0009 
+#define REG_DA2_Out_SoftStartEnable	0x000A 
+#define REG_DA2_PWM_Enable      	0x000B
 
-#define REG_DMM1		0x0100
-#define REG_DMM2		0x0101
-#define REG_DMM3		0x0102
-#define REG_DMM4		0x0103
-#define REG_DMM5		0x0104
-#define REG_DMM6		0x0105
-#define REG_DMM7		0x0106
-#define REG_DMM8		0x0107
+#define REG_DA2_V	                0x000C 
+#define REG_DA2_PWM_FRE	            0x000D 
+#define REG_DA2_PWM_DUTY    	    0x000E 
+ 
+
+ 
 /*************************************************/
 
 
-#define REG_V_K		    0x0100
-#define REG_V_B		    0x0101
+#define REG_V_K		    0x0E00
+#define REG_V_B		    0x0E01
  
-#define REG_V2_K		0x0102
-#define REG_V2_B		0x0103 
+#define REG_V2_K		0x0E02
+#define REG_V2_B		0x0E03 
 
-#define REG_FAWREVER	0xFA00
+#define REG_FAWREVER	0xF000
+#define REG_EEP_SAVE    0xF001
+#define REG_EEP_INIT	0xF002
+
 #define REG_Boot		0xFA01
-#define REG_EEP_SAVE    0xFA02
+
 
 
 /****************** RTU 应答代码 ******************************/

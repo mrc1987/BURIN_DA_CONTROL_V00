@@ -64,29 +64,36 @@ void DAC_Process(void)
 
  
    /*******************DAC1-Softstart************************* */
-  if(WorkSpace.WorkFlags.BIT.DA1_CNTL_Rise_Mode == DA_SLOW_RISE_Mode)
+  if(WorkSpace.WorkFlags.bit.DA1_CNTL_Rise_Mode == DA_SLOW_RISE_Mode)
   {
-     if( WorkSpace.WorkFlags.BIT.DA1_SoftStart_Flag == 0)
+     if( WorkSpace.WorkFlags.bit.DA1_SoftStart_Flag == 0)
      {
+      if(WorkSpace.WorkFlags.bit.DA2_SoftStart_EN )
+      {
        if(s32tem > DA1_Value)
-       {
-          DA1_Value += 2;
+        {
+          DA1_Value += 2;//10ms ÅÀÉý0.002V*1024=2MV
     
-       }
+        }
        else
-       {
+        {
           DA1_Value = s32tem;
-          WorkSpace.WorkFlags.BIT.DA1_SoftStart_Flag = 1;
-       }
+          WorkSpace.WorkFlags.bit.DA1_SoftStart_Flag = 1;
+        }
+      }
+      else
+      {
+        DA1_Value = 0;
+      }
      }
      else
      {
-       Set_DAC_OUT(DAC1_CH ,s32tem);
+       DA1_Value = s32tem;
      }
   }
   else  
   {
-     Set_DAC_OUT(DAC1_CH ,s32tem);
+    DA1_Value = s32tem;
   }
 
 
@@ -94,53 +101,55 @@ void DAC_Process(void)
     s32tem = WorkSpace.DA2_V*gEEP_data.DA2_V_K + gEEP_data.DA2_V_B;
     s32tem = s32tem>>10;
    /*******************DAC2-Softstart************************* */
-   if(WorkSpace.WorkFlags.BIT.DA1_CNTL_Rise_Mode == DA_SLOW_RISE_Mode)
+   if(WorkSpace.WorkFlags.bit.DA2_CNTL_Rise_Mode == DA_SLOW_RISE_Mode)
    {
-      if( WorkSpace.WorkFlags.BIT.DA1_SoftStart_Flag == 0)
+      if( WorkSpace.WorkFlags.bit.DA2_SoftStart_Flag == 0)
       {
-        if(WorkSpace.WorkFlags.BIT.DA1_SoftStart_EN )
+        if(WorkSpace.WorkFlags.bit.DA2_SoftStart_EN )
         {
-            if(s32tem > DA1_Value) 
+            if(s32tem > DA2_Value) 
             {
-              DA1_Value += 2;
+              DA2_Value += 2;
             }
             else
             {
-              DA1_Value = s32tem;
-              WorkSpace.WorkFlags.BIT.DA1_SoftStart_Flag = 1;
+              DA2_Value = s32tem;
+              WorkSpace.WorkFlags.bit.DA2_SoftStart_Flag = 1;
             }
         }
         else
          {
-           DA1_Value = 0;
+           DA2_Value = 0;
          }
       }
       else
       {
-        Set_DAC_OUT(DAC1_CH ,s32tem);
+        DA2_Value = s32tem;
       }
    }
    else  
    {
-      Set_DAC_OUT(DAC1_CH ,s32tem);
+      DA2_Value = s32tem;
    }
  
  
    /********************DAC1-EN****************/
-   if(WorkSpace.WorkFlags.BIT.DA1_CNTL_ONOFF)
+   if(WorkSpace.WorkFlags.bit.DA1_CNTL_ONOFF)
    {
-      if(++DA1_ON_DelayTime > 200)
+      if(++DA1_ON_DelayTime > 500)//5ms 
       {
-        DA1_ON_DelayTime = 500;
-        if( WorkSpace.WorkFlags.BIT.DA1_CNTL_PWM_EN)
+        DA1_ON_DelayTime = 1001;
+        if( WorkSpace.WorkFlags.bit.DA1_CNTL_PWM_EN)
         {
           DA_ENABLE(DAC1_CH ,DAC_OUT_PWM);
+          DA_PWM_OUT(DAC1_CH ,gEEP_data.DA1_FRE,gEEP_data.DA1_Duty);
         }
-        else if ( !WorkSpace.WorkFlags.BIT.DA1_CNTL_PWM_EN)
+        else if ( !WorkSpace.WorkFlags.bit.DA1_CNTL_PWM_EN)
         {
           DA_ENABLE(DAC1_CH ,DAC_OUT_HIGH);
         }
-        WorkSpace.WorkFlags.BIT.DA1_SoftStart_EN = 1;
+        WorkSpace.WorkFlags.bit.DA1_SoftStart_EN = 1;
+        Set_DAC_OUT(DAC1_CH ,DA1_Value);
      }
      else
      {
@@ -150,29 +159,31 @@ void DAC_Process(void)
    }
    else
    {
-      WorkSpace.WorkFlags.BIT.DA1_SoftStart_Flag = 0;
-      WorkSpace.WorkFlags.BIT.DA1_SoftStart_EN = 0;
+      WorkSpace.WorkFlags.bit.DA1_SoftStart_Flag = 0;
+      WorkSpace.WorkFlags.bit.DA1_SoftStart_EN = 0;
       DA1_Value = 0;
       DA1_ON_DelayTime = 0;
       DA_ENABLE(DAC1_CH ,DAC_OUT_OFF);
    }
     /********************DAC2-EN****************/
 
-    if(WorkSpace.WorkFlags.BIT.DA2_CNTL_ONOFF)
+    if(WorkSpace.WorkFlags.bit.DA2_CNTL_ONOFF)
     {
       
-      if(++DA2_ON_DelayTime > 200)
+      if(++DA2_ON_DelayTime > 500)
       {
-        DA2_ON_DelayTime = 500;
-        if( WorkSpace.WorkFlags.BIT.DA2_CNTL_PWM_EN)
+        DA2_ON_DelayTime = 1000;
+        if( WorkSpace.WorkFlags.bit.DA2_CNTL_PWM_EN)
         {
           DA_ENABLE(DAC2_CH ,DAC_OUT_PWM);
+          DA_PWM_OUT(DAC1_CH ,gEEP_data.DA2_FRE,gEEP_data.DA2_Duty);
         }
-        else if ( !WorkSpace.WorkFlags.BIT.DA2_CNTL_PWM_EN)
+        else if ( !WorkSpace.WorkFlags.bit.DA2_CNTL_PWM_EN)
         {
           DA_ENABLE(DAC2_CH ,DAC_OUT_HIGH);
         }
-        WorkSpace.WorkFlags.BIT.DA2_SoftStart_EN = 1;
+        WorkSpace.WorkFlags.bit.DA2_SoftStart_EN = 1;
+        Set_DAC_OUT(DAC2_CH ,DA2_Value);
      }
      else
      {
@@ -182,18 +193,18 @@ void DAC_Process(void)
     }
     else
     {
-       WorkSpace.WorkFlags.BIT.DA2_SoftStart_Flag = 0;
-       WorkSpace.WorkFlags.BIT.DA2_SoftStart_EN = 0;
+       WorkSpace.WorkFlags.bit.DA2_SoftStart_Flag = 0;
+       WorkSpace.WorkFlags.bit.DA2_SoftStart_EN = 0;
        DA2_Value = 0;
        DA_ENABLE(DAC2_CH ,DAC_OUT_OFF);
     }
 
-    /******************DAC-PWM ***************************/
-     DA_PWM_OUT(DAC1_CH ,gEEP_data.DA1_FRE,gEEP_data.DA1_Duty);
-     DA_PWM_OUT(DAC2_CH ,gEEP_data.DA2_FRE,gEEP_data.DA2_Duty);
+ 
+
+
 
     /******************DA1-5V ONOFF*************************/
-    if (WorkSpace.WorkFlags.BIT.DA1_5V_ONOFF)
+    if (WorkSpace.WorkFlags.bit.DA1_CNTL_5V_ONOFF)
     {
       DA1_5V_ONOFF(ON);
     }
@@ -203,7 +214,7 @@ void DAC_Process(void)
     } 
  
    /******************DA2-5V ONOFF*************************/
-    if (WorkSpace.WorkFlags.BIT.DA2_5V_ONOFF)
+    if (WorkSpace.WorkFlags.bit.DA2_CNTL_5V_ONOFF)
     {
       DA2_5V_ONOFF(ON);
     }

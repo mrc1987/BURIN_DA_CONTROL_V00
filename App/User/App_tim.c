@@ -161,7 +161,7 @@ void drv_Timer_Init(void)
 *****************************************************************************/
 void DA_SetValue(U8 CH, U16 q10_Duty)
 {
-  u32 Tem = (DAC_T1_Period * q10_Duty) >> 10;
+  U32 Tem = (DAC_T1_Period * q10_Duty) >> 10;
   if(Tem > DAC_T1_Period)
   {
       Tem = DAC_T1_Period + 1;

@@ -156,8 +156,9 @@ typedef  union
 	    U32 DA2_CNTL_Rise_Mode: 1;    // 缓慢和直接输出DA   
 
 		U32 DA_AutoMode: 1;    // 程序手动/自动切换
-
-	}BIT;
+		U32 EEP_UpdateFlag: 1;    // EEP 更新标志
+ 
+	}bit;
   
   U32 all;              //电源标志
 }Un_WorkFlag_Def;
@@ -212,7 +213,7 @@ typedef  union
 		uint8_t ADDR3: 1; 
 		uint8_t ADDR4: 1;       
 	    uint8_t R:3;               
-	}BIT;
+	}bit;
   
   uint8_t all;              
 }UN_ADDR_Flag_Def;

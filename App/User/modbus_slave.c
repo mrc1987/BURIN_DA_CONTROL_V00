@@ -213,6 +213,11 @@ void MODS_AnalyzeApp(void)
 			MODS_06H();	
 			break;
 		 }  
+		 case 0x10:							/* 写多个保存寄存器（此例程改写g_tVar中的参数）*/
+		 {
+			MODS_06H();	
+			break;
+		 }  
 		default:
 			if(RecAddr != 0) //广播命令 不响应
 			{
@@ -242,46 +247,89 @@ uint8_t MODS_ReadRegValue(uint16_t reg_addr, uint8_t *pReg_value)
 	/*******************************************/
 	switch (reg_addr)									/* 判断寄存器地址 */
 	{
-		case REG_DMM_VRMS: 
+		case REG_DA1_ONOFF: 
 		{
-           s32Tem = ADC_Info.DMM_VRMS;
+			s32Tem =  gEEP_data.DA1_ONOFF;
+			break;	
+		}
+	  case REG_DA1_5V_ONOFF: 
+		{
+           s32Tem =  gEEP_data.DA1_5V_EN;
 
 		   break;	
 		}	
-	  case REG_DMM_VP_RMS: 
+	   case REG_DA1_Out_SoftStartEnable: 
 		{
-           s32Tem = ADC_Info.DMM_VP_RMS;
+           s32Tem =  gEEP_data.DA1_Out_Mode;
 
 		   break;	
 		}	
-	   case REG_DMM_VN_RMS: 
+	   case REG_DA1_PWM_Enable: 
 		{
-           s32Tem = ADC_Info.DMM_VN_RMS;
+           s32Tem =  gEEP_data.DA1_PWM_EN;
 
 		   break;	
 		}	
-	   case REG_DMM_VPN_RMS: 
+		case REG_DA1_V: 
 		{
-           s32Tem = ADC_Info.DMM_VRMS2;
+		   s32Tem =  gEEP_data.DA1_V;
 
 		   break;	
-		}	
-		case REG_DMM_RLY: 
-		{
-     
-
-		   break;	
-		}	
-	   case REG_RLY: 
+		}
+ 
+	   case REG_DA1_PWM_FRE: 
 		{
        
-	
+			s32Tem =  gEEP_data.DA1_FRE;
  			break;	
 		}	
 		
-	   case REG_IN: 
+	   case REG_DA1_PWM_DUTY: 
 		{
-            s32Tem = IN_Flags.Value;
+			s32Tem =  gEEP_data.DA1_Duty;
+
+ 		    break;	
+		}	
+		case REG_DA2_ONOFF: 
+		{
+			s32Tem =  gEEP_data.DA2_ONOFF;
+			break;	
+		}
+	  case REG_DA2_5V_ONOFF: 
+		{
+           s32Tem =  gEEP_data.DA2_5V_EN;
+
+		   break;	
+		}	
+	   case REG_DA2_Out_SoftStartEnable: 
+		{
+           s32Tem =  gEEP_data.DA2_Out_Mode;
+
+		   break;	
+		}	
+	   case REG_DA2_PWM_Enable: 
+		{
+           s32Tem =  gEEP_data.DA2_PWM_EN;
+
+		   break;	
+		}	
+		case REG_DA2_V: 
+		{
+		   s32Tem =  gEEP_data.DA2_V;
+
+		   break;	
+		}
+ 
+	   case REG_DA2_PWM_FRE: 
+		{
+       
+			s32Tem =  gEEP_data.DA2_FRE;
+ 			break;	
+		}	
+		
+	   case REG_DA2_PWM_DUTY:
+		{
+			s32Tem =  gEEP_data.DA2_Duty;
 
  		    break;	
 		}	
@@ -289,28 +337,28 @@ uint8_t MODS_ReadRegValue(uint16_t reg_addr, uint8_t *pReg_value)
 		
         case REG_V_K: 
 		{
-	       s32Tem = gEEP_data.DMM_V_K ;
+	       s32Tem = gEEP_data.DA1_V_K ;
 
 		   break;	
 		}	
 		
         case REG_V_B: 
 		{
-			s32Tem = gEEP_data.DMM_V_B ;
+			s32Tem = gEEP_data.DA1_V_B ;
 
  			break;	
 		}	
 		
         case REG_V2_K: 
 		{
-			s32Tem = gEEP_data.DMM_V2_K ;
+			s32Tem = gEEP_data.DA2_V_K ;
 
  			break;	
 		}	
 
         case REG_V2_B: 
 		{
-			s32Tem = gEEP_data.DMM_V2_B ;
+			s32Tem = gEEP_data.DA2_V_B ;
 
  			break;	
 		}	
@@ -320,6 +368,11 @@ uint8_t MODS_ReadRegValue(uint16_t reg_addr, uint8_t *pReg_value)
              s32Tem = (uint16_t)FIREWARE_VER ;
 
  			break;	
+		}
+		default:
+		{
+			s32Tem = 0;									/* 寄存器地址错误 */
+			break;
 		}
 
 	
@@ -348,42 +401,116 @@ uint8_t MODS_ReadRegValue(uint16_t reg_addr, uint8_t *pReg_value)
 	i16Tem = 0;
 	switch (reg_addr)							/* 判断寄存器地址 */
 	{	
-		case REG_DMM_RLY: 
+		case REG_DA1_ONOFF: 
 		{
-            DMM_Flags.Value = reg_value;
+			  gEEP_data.DA1_ONOFF = reg_value;
+			break;	
+		}
+	  case REG_DA1_5V_ONOFF: 
+		{
+            gEEP_data.DA1_5V_EN = reg_value;
 
 		   break;	
 		}	
-	   case REG_RLY: 
+	   case REG_DA1_Out_SoftStartEnable: 
 		{
-             RLY_Flags.Value = reg_value;
+           gEEP_data.DA1_Out_Mode = reg_value;
 
+		   break;	
+		}	
+	   case REG_DA1_PWM_Enable: 
+		{
+            gEEP_data.DA1_PWM_EN = reg_value;
+
+		   break;	
+		}	
+		case REG_DA1_V: 
+		{
+		    gEEP_data.DA1_V = reg_value;
+
+		   break;	
+		}
+ 
+	   case REG_DA1_PWM_FRE: 
+		{
+       
+			 gEEP_data.DA1_FRE = reg_value;
  			break;	
+		}	
+		
+	   case REG_DA1_PWM_DUTY: 
+		{
+			  gEEP_data.DA1_Duty = reg_value;
+
+ 		    break;	
+		}	
+		case REG_DA2_ONOFF: 
+		{
+			  gEEP_data.DA2_ONOFF = reg_value;
+			break;	
+		}
+	  case REG_DA2_5V_ONOFF: 
+		{
+            gEEP_data.DA2_5V_EN = reg_value;
+
+		   break;	
+		}	
+	   case REG_DA2_Out_SoftStartEnable: 
+		{
+            gEEP_data.DA2_Out_Mode = reg_value;
+
+		   break;	
+		}	
+	   case REG_DA2_PWM_Enable: 
+		{
+            gEEP_data.DA2_PWM_EN = reg_value;
+
+		   break;	
+		}	
+		case REG_DA2_V: 
+		{
+		     gEEP_data.DA2_V = reg_value;
+
+		   break;	
+		}
+ 
+	   case REG_DA2_PWM_FRE: 
+		{
+       
+			  gEEP_data.DA2_FRE = reg_value;
+ 			break;	
+		}	
+		
+	   case REG_DA2_PWM_DUTY: 
+		{
+		    gEEP_data.DA2_Duty = reg_value;
+
+ 		    break;	
 		}	
        case REG_V_K: 
 		{
-	       gEEP_data.DMM_V_K  = reg_value ;
+	       gEEP_data.DA1_V_K  = reg_value ;
 
 		   break;	
 		}	
 		
         case REG_V_B: 
 		{
-			 gEEP_data.DMM_V_B   = reg_value;
+			 gEEP_data.DA1_V_B   = reg_value;
 
  			break;	
 		}	
 		
         case REG_V2_K: 
 		{
-			gEEP_data.DMM_V2_K   = reg_value;
+			gEEP_data.DA2_V_K   = reg_value;
 
  			break;	
 		}	
 
         case REG_V2_B: 
 		{
-			gEEP_data.DMM_V2_B  = reg_value ;
+			gEEP_data.DA2_V_B  = reg_value ;
 
  			break;	
 		}	
@@ -391,7 +518,20 @@ uint8_t MODS_ReadRegValue(uint16_t reg_addr, uint8_t *pReg_value)
 		{
 			if(reg_value ==0xAA55 ) //保存EEP 数据
 			{
-				Flash_EEP_Write();
+				//Flash_EEP_Write();
+				WorkSpace.WorkFlags.bit.EEP_UpdateFlag = 1;
+ 			    ret = 1;
+			}
+ 			break;	
+		}	
+		case REG_EEP_INIT:
+		{
+			if(reg_value ==0xAA55 ) //保存EEP 数据
+			{
+				InitEEP();
+				//Flash_EEP_Write();
+				WorkSpace.WorkFlags.bit.EEP_UpdateFlag = 1;
+	 
  			    ret = 1;
 			}
  			break;	
@@ -415,7 +555,7 @@ uint8_t MODS_ReadRegValue(uint16_t reg_addr, uint8_t *pReg_value)
 	uint16_t reg;
 	uint16_t num;
 	uint16_t i;
-	uint8_t reg_value[64];
+	uint8_t reg_value[140];
 
 	g_tModS.RspCode = RSP_OK;
 
@@ -426,7 +566,7 @@ uint8_t MODS_ReadRegValue(uint16_t reg_addr, uint8_t *pReg_value)
 	}
 
 	reg = BEBufToUint16(&g_tModS.pRxBuf[2]); 				/* 寄存器号 */
-	num = BEBufToUint16(&g_tModS.pRxBuf[4]);					/* 寄存器个数 */
+	num = BEBufToUint16(&g_tModS.pRxBuf[4]);				/* 寄存器个数 */
 	if(num == 0)
      {  
 	     g_tModS.RspCode = RSP_ERR_VALUE;
@@ -499,47 +639,7 @@ err_ret:
 	switch (reg)							/* 判断寄存器地址 */
 	{	
 
-	    case REG_RLY1: 
-	    case REG_RLY2: 
-		case REG_RLY3: 
-		case REG_RLY4: 
-	    case REG_RLY5: 
-	    case REG_RLY6: 
-		case REG_RLY7: 
-		case REG_RLY8:
-		{
-			index = reg-REG_RLY1;
-			if(value == 0xFF00)
-			{
-               RLY_Flags.Value |= (1<<index);
-			}
-			else if(value == 0)
-			{
-			   RLY_Flags.Value &= ~(1<<index);	
-			}
-		   break;	
-		}	
-	    case REG_DMM1: 
-	    case REG_DMM2: 
-		case REG_DMM3: 
-		case REG_DMM4: 
-	    case REG_DMM5: 
-	    case REG_DMM6: 
-		case REG_DMM7: 
-		case REG_DMM8:
-		{
-  
-		   index = reg-REG_DMM1;
-			if(value == 0xFF00)
-			{
-               DMM_Flags.Value = (1<<index);
-			}
-			else if(value == 0)
-			{
-			   DMM_Flags.Value = 0;	
-			}
- 		   break;	
-		}		
+	
  
 		default:
 		{
@@ -614,5 +714,99 @@ err_ret:
    }
 }
 
+/*
+*********************************************************************************************************
+*	函 数 名: MODS_10H
+*	功能说明: 连续写多个寄存器.  进用于改写时钟
+*	形    参: 无
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void MODS_10H(void)
+{
+	/*
+		从机地址为11H。保持寄存器的其实地址为0001H，寄存器的结束地址为0002H。总共访问2个寄存器。
+		保持寄存器0001H的内容为000AH，保持寄存器0002H的内容为0102H。
 
+		主机发送:
+			11 从机地址
+			10 功能码
+			00 寄存器起始地址高字节
+			01 寄存器起始地址低字节
+			00 寄存器数量高字节
+			02 寄存器数量低字节
+			04 字节数
+			00 数据1高字节
+			0A 数据1低字节
+			01 数据2高字节
+			02 数据2低字节
+			C6 CRC校验高字节
+			F0 CRC校验低字节
+
+		从机响应:
+			11 从机地址
+			06 功能码
+			00 寄存器地址高字节
+			01 寄存器地址低字节
+			00 数据1高字节
+			01 数据1低字节
+			1B CRC校验高字节
+			5A	CRC校验低字节
+
+		例子:
+			01 10 30 00 00 06 0C  07 DE  00 0A  00 01  00 08  00 0C  00 00     389A    ---- 写时钟 2014-10-01 08:12:00
+			01 10 30 00 00 06 0C  07 DF  00 01  00 1F  00 17  00 3B  00 39     5549    ---- 写时钟 2015-01-31 23:59:57
+
+	*/
+	uint16_t reg_addr;
+	uint16_t reg_num;
+	uint8_t byte_num;
+	uint8_t i;
+	uint16_t value;
+	
+	g_tModS.RspCode = RSP_OK;
+
+	if (g_tModS.RxCount < 11)
+	{
+		g_tModS.RspCode = RSP_ERR_VALUE;			/* 数据值域错误 */
+		goto err_ret;
+	}
+
+	reg_addr = BEBufToUint16(&g_tModS.pRxBuf[2]); 	/* 寄存器号 */
+	reg_num = BEBufToUint16(&g_tModS.pRxBuf[4]);		/* 寄存器个数 */
+	byte_num = g_tModS.pRxBuf[6];					/* 后面的数据体字节数 */
+
+	if (byte_num != 2 * reg_num)
+	{
+		g_tModS.RspCode = RSP_ERR_VALUE;
+	}
+	
+	for (i = 0; i < reg_num; i++)
+	{
+		value = BEBufToUint16(&g_tModS.pRxBuf[7 + 2 * i]);	/* 寄存器值 */
+
+		if (MODS_WriteRegValue(reg_addr + i, value) == 1)
+		{
+			;
+		}
+		else
+		{
+			g_tModS.RspCode = RSP_ERR_REG_ADDR;		/* 寄存器地址错误 */
+			break;
+		}
+	}
+
+err_ret:
+if(g_tModS.pRxBuf[0] != 0)//广播命令 不响应
+{
+	if (g_tModS.RspCode == RSP_OK)				/* 正确应答 */
+	{
+		MODS_SendAckOk();
+	}
+	else
+	{
+		MODS_SendAckErr(g_tModS.RspCode);		/* 告诉主机命令错误 */
+	}
+}
+}
 /*****************************  *********************************/

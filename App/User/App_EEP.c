@@ -1,9 +1,52 @@
 #include "main.h"
 
-PS_EEPStruct EEP_Data;
+ST_EEPStruct       gEEP_data;             //EEP 保存数据
 
 BootLoader_Info_def   EEP_BootData;
 
+
+ /**************************************************************************
+*函数名： void InitEEP()
+*描述：  
+*返回：
+*说明：
+*
+*****************************************************************************/
+ 
+ void InitEEP()
+ {
+    gEEP_data.EEPFlag =0xA5;
+	 
+	gEEP_data.DA1_Out_Mode = 0; //缓慢和直接输出DA
+	gEEP_data.DA1_PWM_EN   = 0;   //输出PWM开关	
+	gEEP_data.DA1_5V_EN    = 0;    //5V 开关
+	gEEP_data.DA1_ONOFF    = 0;    //5V 开关
+
+	gEEP_data.DA2_Out_Mode = 0; //缓慢和直接输出DA
+	gEEP_data.DA2_PWM_EN   = 0;   //输出PWM开关	
+	gEEP_data.DA2_5V_EN    = 0;    //5V 开关
+	gEEP_data.DA2_ONOFF    = 0;    //5V 开关
+
+
+    gEEP_data.DA1_V = 5*1024;
+	gEEP_data.DA2_V = 5*1024;
+
+    gEEP_data.DA1_Duty = 50;
+	gEEP_data.DA1_FRE  = 1000;
+	 
+	gEEP_data.DA2_Duty = 50;
+	gEEP_data.DA2_FRE  = 1000;
+	 
+	 
+	gEEP_data.DA1_V_K = 0;
+	gEEP_data.DA1_V_B = 1<<10;
+	 
+ 
+	gEEP_data.DA2_V_K = 0;
+	gEEP_data.DA2_V_B = 1<<10;
+
+	 
+ }
 
 /*
 *********************************************************************************************************
@@ -24,10 +67,6 @@ void EEPDataWithCRC(uint8_t *_pBuf, uint8_t _ucLen)
 	buf[_ucLen++] = crc >> 8;
 	buf[_ucLen++] = crc;
 
-
-
-	
-
 }
 /**************************************************************************************
 * FunctionName   : void  Read_EEP()
@@ -41,69 +80,42 @@ uint8_t Read_EEP()
  
   uint8_t  uLen,i;
   
- uLen=sizeof(PS_EEPStruct);
+ uLen=sizeof(ST_EEPStruct);
 
 	
- if(ee_ReadBytes((uint8_t*)&EEP_Data,EEP_Offset,uLen) )
+ if(ee_ReadBytes((uint8_t*)&gEEP_data,EEP_Offset,uLen) )
     {   
-	  if(EEP_Data.EEPFlag == 0xAA55)
+	  if(gEEP_data.EEPFlag == 0xA5)
        {
-          for(i=0;i<12;i++)
-		  {
-		    if((EEP_Data.DAC_K[i] >12000)||(EEP_Data.DAC_K[i] < 8000)) EEP_Data.DAC_K[i]  =10000;
-            if((EEP_Data.DAC_B[i] < -5000)||(EEP_Data.DAC_B[i] > 5000)) EEP_Data.DAC_B[i]  = 0;
-		  }
-	      bEEP_ERROR=0;
+ 
 		 return 1;
 	  }
 	  else
 	  {
  
-		  EEP_Data.EEPFlag=0XAA55;
-         for(i=0;i<12;i++)
+          InitEEP();
+		  if(ee_WriteBytes((uint8_t*)&gEEP_data,EEP_Offset,uLen))
 		  {
-		     EEP_Data.DAC_K[i]  =10000;
-             EEP_Data.DAC_B[i]  = 0;
-			
-		  }
-
-		  if(ee_WriteBytes((uint8_t*)&EEP_Data,EEP_Offset,uLen))
-		  {
-			   bEEP_ERROR=0;  
+ 
 			   return 1;
 		  }
-		  else
-		  {
-             bEEP_ERROR=1;
-		  }
  
-          return 0;
 	  }
 
   }
   else
   {
-         for(i=0;i<12;i++)
-		{
-		     EEP_Data.DAC_K[i]  =10000;
-             EEP_Data.DAC_B[i]  = 0;
-			
-		}
-
-		EEP_Data.EEPFlag=0XAA55;
-	   if(ee_WriteBytes((uint8_t*)&EEP_Data,EEP_Offset,uLen))
+       InitEEP();
+	   if(ee_WriteBytes((uint8_t*)&gEEP_data,EEP_Offset,uLen))
 		  {
-			  bEEP_ERROR=0;  
+ 
 			  return 1;
 		  }
-		  else
-		  {
-             bEEP_ERROR=1;
-		  }
  
-	  return 0;
-  }
+ 
 
+  }
+  return 0;
 }
 
 /**************************************************************************************
@@ -116,19 +128,59 @@ uint8_t Read_EEP()
 uint8_t  EEP_Save()
 {
     uint8_t  uLen;
-	uLen=sizeof(PS_EEPStruct);
-   if(ee_WriteBytes((uint8_t*)&EEP_Data,EEP_Offset,uLen))
+	uLen=sizeof(ST_EEPStruct);
+   if(ee_WriteBytes((uint8_t*)&gEEP_data,EEP_Offset,uLen))
      {
-		 bEEP_ERROR=0;  
+ 
 		 return 1;
 	 }
-   else
-	 {
-        bEEP_ERROR=1;
-     }
+ 
  
   return 0;
 }
+
+/**************************************************************************************
+* FunctionName   : EEP_SaveTask
+* Description    : 保存数据
+* EntryParameter : None
+* ReturnValue    : 0 保存失败  1 保存成功
+**************************************************************************************/
+
+void  EEP_SaveTask()
+{
+    uint8_t  uLen;
+	uint8_t  wLen;
+    static uint8_t SaveAddrIndex = 0;
+	uLen=sizeof(ST_EEPStruct);
+	if(WorkSpace.WorkFlags.bit.EEP_UpdateFlag)
+	{
+		if(SaveAddrIndex < uLen)
+		{
+			if(SaveAddrIndex + EE_PAGE_SIZE > uLen)
+			{
+				wLen  = uLen - SaveAddrIndex;
+			}
+			else
+			{
+				wLen = EE_PAGE_SIZE;
+			}
+		  ee_WriteBytes((uint8_t*)&gEEP_data + SaveAddrIndex,EEP_Offset + SaveAddrIndex,wLen);
+		  SaveAddrIndex += wLen;
+		}
+		else
+		{
+			SaveAddrIndex = 0;
+			WorkSpace.WorkFlags.bit.EEP_UpdateFlag = 0;
+		}
+ 
+	}
+	else
+	{
+		SaveAddrIndex =0;
+	}
+ 
+}
+
 
 /**************************************************************************************
 * FunctionName   : EEP_RegSave
@@ -141,42 +193,39 @@ uint8_t  EEP_RegSave(uint8_t RegAddr,uint16_t RegValue)
 {
    if(ee_WriteBytes((uint8_t*)&RegValue,RegAddr,2))
      {
-		 bEEP_ERROR=0;  
+ 
 		 return 1;
 	 }
-   else
-	 {
-        bEEP_ERROR=1;
-     }
+ 
  
   return 0;
 }
 
-/**************************************************************************************
-* FunctionName   : EEP_RegSave
-* Description    : 保存指定寄存器数据数据
-* EntryParameter : None
-* ReturnValue    : 0 保存失败  1 保存成功
-**************************************************************************************/
+// /**************************************************************************************
+// * FunctionName   : EEP_RegSave
+// * Description    : 保存指定寄存器数据数据
+// * EntryParameter : None
+// * ReturnValue    : 0 保存失败  1 保存成功
+// **************************************************************************************/
 
-uint8_t  EEP_DAC_KBWrite(uint8_t RegAddr,uint16_t K,int16_t B)
-{
-   if(ee_WriteBytes((uint8_t*)&K,2*RegAddr+EEP_DAC_K_Offset,2)==0)
-     {
-		 bEEP_ERROR=0;  
-		 return 0;
-	 }
+// uint8_t  EEP_DAC_KBWrite(uint8_t RegAddr,uint16_t K,int16_t B)
+// {
+//    if(ee_WriteBytes((uint8_t*)&K,2*RegAddr+EEP_DAC_K_Offset,2)==0)
+//      {
+ 
+// 		 return 0;
+// 	 }
 
 	 
-	 if(ee_WriteBytes((uint8_t*)&B,2*RegAddr+EEP_DAC_B_Offset,2) == 0)
-     {
-		 bEEP_ERROR=0;  
-		 return 0;
-	 }
+// 	 if(ee_WriteBytes((uint8_t*)&B,2*RegAddr+EEP_DAC_B_Offset,2) == 0)
+//      {
+	 
+// 		 return 0;
+// 	 }
 
  
-     return 1;
-}
+//      return 1;
+// }
 
 /**************************************************************************************
 * FunctionName   : EEP_BootEntry()

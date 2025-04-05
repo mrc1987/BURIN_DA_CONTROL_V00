@@ -53,7 +53,10 @@
 .\output\app_uart.o: ..\User\app_uart.h
 .\output\app_uart.o: ..\User\APP_DAC.h
 .\output\app_uart.o: ..\User\app_adc.h
+.\output\app_uart.o: ..\User\app_eep.h
+.\output\app_uart.o: ..\User\app_init.h
 .\output\app_uart.o: ..\User\app_tim.h
 .\output\app_uart.o: ..\Driver\drv_i2c_gpio.h
+.\output\app_uart.o: ..\Driver\DRV_EEPROM_24XX.h
 .\output\app_uart.o: ..\Driver\drv_uart.h
 .\output\app_uart.o: ..\User\modbus_slave.h

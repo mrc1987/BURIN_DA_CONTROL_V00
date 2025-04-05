@@ -55,5 +55,8 @@
 .\output\drv_uart.o: ..\User\app_uart.h
 .\output\drv_uart.o: ..\User\APP_DAC.h
 .\output\drv_uart.o: ..\User\app_adc.h
+.\output\drv_uart.o: ..\User\app_eep.h
+.\output\drv_uart.o: ..\User\app_init.h
 .\output\drv_uart.o: ..\User\app_tim.h
 .\output\drv_uart.o: ..\Driver\drv_i2c_gpio.h
+.\output\drv_uart.o: ..\Driver\DRV_EEPROM_24XX.h

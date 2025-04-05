@@ -2,14 +2,12 @@
 
  
 
- 
 
-
-uint8_t WorkMode;//工作模式
+uint8_t WorkMode; 
 uint32_t Work_RUN_ms;
 //---------------thread--------------------------------------------
  
- /*  变量分配4字节对齐 */
+ 
  ALIGN(RT_ALIGN_SIZE)
  static rt_uint8_t MainTask_stack[512];
   
@@ -26,57 +24,17 @@ uint32_t Work_RUN_ms;
  struct rt_thread  DA_Task_thread; 
 
  
- /**************************************************************************
-*函数名： void InitEEP()
-*描述：  
-*返回：
-*说明：
-*
-*****************************************************************************/
- 
- void InitEEP()
- {
-    gEEP_data.EEPFlag =0xA5;
-	 
-    gEEP_data.DA1_V = 5*1024;
-	gEEP_data.DA2_V = 5*1024;
 
-    gEEP_data.DA1_Duty = 50;
-	gEEP_data.DA1_FRE  = 1000;
-	 
-	gEEP_data.DA2_Duty = 50;
-	gEEP_data.DA2_FRE  = 1000;
-	 
-	 
-	gEEP_data.DA1_V_K = 0;
-	gEEP_data.DA1_V_B = 1<<10;
-	 
  
-	gEEP_data.DA2_V_K = 0;
-	gEEP_data.DA2_V_B = 1<<10;
-
-	 
- }
  
- /**************************************************************************
-*函数名： void ClearAlarm()
-*描述：  清除故障
-*返回：
-*说明：
-*
-*****************************************************************************/
- 
- void ClearAlarm()
- {
- 
- }
- /**************************************************************************
-*函数名：InitVariant
-*描述：  初始化所有变量
-*返回：
-*说明：
-*
-*****************************************************************************/
+/*
+*********************************************************************************************************
+*	函 数 名: Auto_CNTL_DAC
+*	功能说明:  
+*	形    参: 
+*	返 回 值: 无
+*********************************************************************************************************
+*/
 void InitVariant()
 {
    WorkMode = 0;
@@ -84,87 +42,78 @@ void InitVariant()
 }	
  
  	
-/*
-*********************************************************************************************************
-*   函 数 名: Relay_Control
-*   功能说明:
-*   形    参:
-*   返 回 值: 无
-*********************************************************************************************************
-*/
-void Relay_Control()
-{
-	
  
-}
 
 /*
 *********************************************************************************************************
-*   函 数 名: in_check()
-*   功能说明:
-*   形    参:
-*   返 回 值: 无
+*	函 数 名: ADDR_check
+*	功能说明:  
+*	形    参: 
+*	返 回 值: 无
 *********************************************************************************************************
 */
 void ADDR_check()
 {
-
+  static uint8_t addr_tem= 0;
+ 
+	WorkSpace.ADDR_Flags.all = 0;
 	if(ADD1_IO_IN == 0)
 	{
-		WorkSpace.ADDR_Flags.Bit.ADDR1 = 1;
+		WorkSpace.ADDR_Flags.bit.ADDR1 = 1;
 	}
 	else
 	{
-		WorkSpace.ADDR_Flags.Bit.ADDR1 = 0;
+		WorkSpace.ADDR_Flags.bit.ADDR1 = 0;
 	}	
 	
 	if(ADD2_IO_IN == 0)
 	{
-		WorkSpace.ADDR_Flags.Bit.ADDR2 = 1;
+		WorkSpace.ADDR_Flags.bit.ADDR2 = 1;
 	}
 	else
 	{
-		WorkSpace.ADDR_Flags.Bit.ADDR2 = 0;
+		WorkSpace.ADDR_Flags.bit.ADDR2 = 0;
 	}	
 	
 	if(ADD3_IO_IN == 0)
 	{
-		WorkSpace.ADDR_Flags.Bit.ADDR3 = 1;
+		WorkSpace.ADDR_Flags.bit.ADDR3 = 1;
 	}
 	else
 	{
-		WorkSpace.ADDR_Flags.Bit.ADDR3 = 0;
+		WorkSpace.ADDR_Flags.bit.ADDR3 = 0;
 	}	
 	
 	if(ADD4_IO_IN == 0)
 	{
-		WorkSpace.ADDR_Flags.Bit.ADDR4 = 1;
+		WorkSpace.ADDR_Flags.bit.ADDR4 = 1;
 	}
 	else
 	{
-		WorkSpace.ADDR_Flags.Bit.ADDR4 = 0;
+		WorkSpace.ADDR_Flags.bit.ADDR4 = 0;
 	}	
  
-   if(WorkSpace.modbus_addr != WorkSpace.ADDR_Flags.all)
+	addr_tem = WorkSpace.ADDR_Flags.all +1;
+   if(WorkSpace.modbus_addr != addr_tem)
    {
-		WorkSpace.modbus_addr = WorkSpace.ADDR_Flags.all;
+		WorkSpace.modbus_addr = addr_tem;
    }
 }
 
 
 /*
 *********************************************************************************************************
-*   函 数 名: in_check()
-*   功能说明:
-*   形    参:
-*   返 回 值: 无
+*	函 数 名: Input_IO_check
+*	功能说明:  
+*	形    参: 
+*	返 回 值: 无
 *********************************************************************************************************
 */
 void Input_IO_check()
 {
 	static uint8_t IO_Select_State = 0;	
 	static uint8_t IO_Read_State = 0;	
-	IO_Select_State++
+	IO_Select_State++;
 	switch (IO_Select_State&0x03)
 	{
 	 case 0:
@@ -172,10 +121,10 @@ void Input_IO_check()
 		 S0(0);
 		 S1(0); 
 		 rt_thread_delay(2);
-         WorkSpace.WorkFlags.BIT.DA1_OUT_Mode = S1_IO_IN1;
+         WorkSpace.WorkFlags.bit.DA1_CNTL_Rise_Mode = S1_IO_IN1;
 		 WorkSpace.DA1_SetFlags.BIT.DA4       = S1_IO_IN2;
  
-         WorkSpace.WorkFlags.BIT.DA2_OUT_Mode = S2_IO_IN1;
+         WorkSpace.WorkFlags.bit.DA2_CNTL_Rise_Mode = S2_IO_IN1;
 		 WorkSpace.DA2_SetFlags.BIT.DA4       = S2_IO_IN2;
 
 		 break;
@@ -185,10 +134,10 @@ void Input_IO_check()
 		 S0(1);
 		 S1(0); 
 		 rt_thread_delay(2);
-         WorkSpace.WorkFlags.BIT.DA1_ONOFF     = S1_IO_IN1;
+         WorkSpace.WorkFlags.bit.DA1_CNTL_ONOFF     = S1_IO_IN1;
 		 WorkSpace.DA1_SetFlags.BIT.DA1       = S1_IO_IN2;
  
-         WorkSpace.WorkFlags.BIT.DA2_ONOFF    = S2_IO_IN1;
+         WorkSpace.WorkFlags.bit.DA2_CNTL_ONOFF    = S2_IO_IN1;
 		 WorkSpace.DA2_SetFlags.BIT.DA1       = S2_IO_IN2;
 
 		 break;
@@ -198,10 +147,10 @@ void Input_IO_check()
 		 S0(0);
 		 S1(1); 
 		 rt_thread_delay(2);
-         WorkSpace.WorkFlags.BIT.DA1_5V_ONOFF     = S1_IO_IN1;
+         WorkSpace.WorkFlags.bit.DA1_CNTL_5V_ONOFF     = S1_IO_IN1;
 		 WorkSpace.DA1_SetFlags.BIT.DA3       = S1_IO_IN2;
  
-         WorkSpace.WorkFlags.BIT.DA2_5V_ONOFF    = S2_IO_IN1;
+         WorkSpace.WorkFlags.bit.DA2_CNTL_5V_ONOFF    = S2_IO_IN1;
 		 WorkSpace.DA2_SetFlags.BIT.DA3       = S2_IO_IN2;
 
 		 break;
@@ -211,10 +160,10 @@ void Input_IO_check()
 		 S0(1);
 		 S1(1); 
 		 rt_thread_delay(2);
-         WorkSpace.WorkFlags.BIT.DA2_PWM_EN     = S1_IO_IN1;
+         WorkSpace.WorkFlags.bit.DA1_CNTL_PWM_EN     = S1_IO_IN1;
 		 WorkSpace.DA1_SetFlags.BIT.DA2         = S1_IO_IN2;
  
-         WorkSpace.WorkFlags.BIT.DA2_PWM_EN     = S2_IO_IN1;
+         WorkSpace.WorkFlags.bit.DA2_CNTL_PWM_EN     = S2_IO_IN1;
 		 WorkSpace.DA2_SetFlags.BIT.DA2         = S2_IO_IN2;
 
 
@@ -227,11 +176,11 @@ void Input_IO_check()
 		S0(0);
 		S1(0); 
 		rt_thread_delay(2);
-		WorkSpace.WorkFlags.BIT.DA1_OUT_Mode = S1_IO_IN1;
-		WorkSpace.DA1_SetFlags.BIT.DA4       = S1_IO_IN2;
-
-		WorkSpace.WorkFlags.BIT.DA2_OUT_Mode = S2_IO_IN1;
-		WorkSpace.DA2_SetFlags.BIT.DA4       = S2_IO_IN2;
+         WorkSpace.WorkFlags.bit.DA1_CNTL_Rise_Mode = S1_IO_IN1;
+		 WorkSpace.DA1_SetFlags.BIT.DA4       = S1_IO_IN2;
+ 
+         WorkSpace.WorkFlags.bit.DA2_CNTL_Rise_Mode = S2_IO_IN1;
+		 WorkSpace.DA2_SetFlags.BIT.DA4       = S2_IO_IN2;
         IO_Select_State = 0;	
 		break;
 	  }
@@ -243,17 +192,21 @@ void Input_IO_check()
  
 	
 }
-/**************************************************************************
-*函数名： Manu_CNTL_DAC
-*描述：  
-*返回：
-*说明：
-*
-*****************************************************************************/
+/*
+*********************************************************************************************************
+*	函 数 名: Manu_CNTL_DAC
+*	功能说明:  
+*	形    参: 
+*	返 回 值: 无
+*********************************************************************************************************
+*/
 void Manu_CNTL_DAC()
 {
-	//手动设置DA输出电压值
-	if(WorkSpace.WorkFlags.BIT.DA1_5V_ONOFF == 1)
+	static U16 DA1_SetValue = 0;
+	static U16 DA2_SetValue = 0;
+	U16    U16Tem = 0;
+ 
+	if(WorkSpace.WorkFlags.bit.DA1_CNTL_5V_ONOFF == 1)
 	{
 		DA1_5V_ONOFF(1);
 	}
@@ -262,7 +215,7 @@ void Manu_CNTL_DAC()
 		DA1_5V_ONOFF(0);
 	}
 	
-	if(WorkSpace.WorkFlags.BIT.DA2_5V_ONOFF == 1)
+	if(WorkSpace.WorkFlags.bit.DA2_CNTL_5V_ONOFF == 1)
 	{
 		DA2_5V_ONOFF(1);
 	}
@@ -271,84 +224,98 @@ void Manu_CNTL_DAC()
 		DA2_5V_ONOFF(0);
 	}
 	/******************************************/
-	WorkSpace.DA1_V = 0;
+	U16Tem = 0;
     if(WorkSpace.DA1_SetFlags.BIT.DA0 == 1)
 	{
-		WorkSpace.DA1_V += 10;// 
+		U16Tem += 10;// 
 	}
 	else if(WorkSpace.DA1_SetFlags.BIT.DA1 == 1)
 	{
-		WorkSpace.DA1_V += 20;// 
+		U16Tem += 20;// 
 	}
 	else if(WorkSpace.DA1_SetFlags.BIT.DA2 == 1)
 	{
-		WorkSpace.DA1_V += 50;// 
+		U16Tem += 50;// 
 	}
 	else if(WorkSpace.DA1_SetFlags.BIT.DA3 == 1)
 	{
-		WorkSpace.DA1_V += 100;// 
+		U16Tem += 100;// 
 	}
 	else if(WorkSpace.DA1_SetFlags.BIT.DA4 == 1)
 	{
-		WorkSpace.DA1_V += 150;// 
+		U16Tem += 150;// 
 	}
 	else if(WorkSpace.DA1_SetFlags.BIT.DA5 == 1)
 	{
-		WorkSpace.DA1_V += 200;// 
+		U16Tem += 200;// 
 	}
+    if(DA1_SetValue == U16Tem)
+	{
+		WorkSpace.DA1_V  = DA1_SetValue  ;
+	}
+ 
+	DA1_SetValue = U16Tem;
  /***************************************************/
- WorkSpace.DA2_V = 0;
+ U16Tem = 0;
  if(WorkSpace.DA2_SetFlags.BIT.DA0 == 1)
  {
-	 WorkSpace.DA2_V += 10;// 
+	U16Tem += 10;// 
  }
  else if(WorkSpace.DA2_SetFlags.BIT.DA1 == 1)
  {
-	 WorkSpace.DA2_V += 20;// 
+	U16Tem += 20;// 
  }
  else if(WorkSpace.DA2_SetFlags.BIT.DA2 == 1)
  {
-	 WorkSpace.DA2_V += 50;// 
+	U16Tem += 50;// 
  }
  else if(WorkSpace.DA2_SetFlags.BIT.DA3 == 1)
  {
-	 WorkSpace.DA2_V += 100;// 
+	U16Tem += 100;// 
  }
  else if(WorkSpace.DA2_SetFlags.BIT.DA4 == 1)
  {
-	 WorkSpace.DA2_V += 150;// 
+	U16Tem  += 150;// 
  }
  else if(WorkSpace.DA2_SetFlags.BIT.DA5 == 1)
  {
-	 WorkSpace.DA2_V += 200;// 
+	U16Tem += 200;// 
  }
  
-	
+ if(DA2_SetValue == U16Tem)
+ {
+	 WorkSpace.DA2_V  = DA2_SetValue  ;
+ }
+
+ DA2_SetValue = U16Tem;	
+
+ 
  
 	
 }	
  
-/**************************************************************************
-*函数名： MainTask_thread_entry
-*描述：  电源检测控制任务
-*返回：
-*说明：
-*
-*****************************************************************************/
+/*
+*********************************************************************************************************
+*	函 数 名: Auto_CNTL_DAC
+*	功能说明:  
+*	形    参: 
+*	返 回 值: 无
+*********************************************************************************************************
+*/
 void Auto_CNTL_DAC()
 {
  
-	WorkSpace.WorkFlags.BIT.DA1_5V_ONOFF = gEEP_data.DA1_5V_EN;
-	WorkSpace.WorkFlags.BIT.DA2_5V_ONOFF = gEEP_data.DA2_5V_EN;
+	WorkSpace.WorkFlags.bit.DA1_CNTL_5V_ONOFF = gEEP_data.DA1_5V_EN;
+	WorkSpace.WorkFlags.bit.DA2_CNTL_5V_ONOFF = gEEP_data.DA2_5V_EN;
 
-	WorkSpace.WorkFlags.BIT.DA1_CNTL_ONOFF = gEEP_data.DA1_ONOFF;
-	WorkSpace.WorkFlags.BIT.DA1_CNTL_ONOFF = gEEP_data.DA1_ONOFF;
+	WorkSpace.WorkFlags.bit.DA1_CNTL_ONOFF = gEEP_data.DA1_ONOFF;
+	WorkSpace.WorkFlags.bit.DA1_CNTL_ONOFF = gEEP_data.DA1_ONOFF;
 
-	WorkSpace.WorkFlags.BIT.DA1_CNTL_OUT_Mode = gEEP_data.DA1_Out_Mode;
-	WorkSpace.WorkFlags.BIT.DA2_CNTL_OUT_Mode = gEEP_data.DA2_Out_Mode;
+	WorkSpace.WorkFlags.bit.DA1_CNTL_Rise_Mode = gEEP_data.DA1_Out_Mode;
+	WorkSpace.WorkFlags.bit.DA2_CNTL_Rise_Mode = gEEP_data.DA2_Out_Mode;
 
-	WorkSpace.WorkFlags.BIT.DA1_CNTL_PWM_EN = gEEP_data.DA1_PWM_EN;
-	WorkSpace.WorkFlags.BIT.DA2_CNTL_PWM_EN = gEEP_data.DA2_PWM_EN;
+	WorkSpace.WorkFlags.bit.DA1_CNTL_PWM_EN = gEEP_data.DA1_PWM_EN;
+	WorkSpace.WorkFlags.bit.DA2_CNTL_PWM_EN = gEEP_data.DA2_PWM_EN;
 
 	/******************************************/
 	WorkSpace.DA1_V = gEEP_data.DA1_V;
@@ -358,13 +325,14 @@ void Auto_CNTL_DAC()
 	
 }	
 
-/**************************************************************************
-*函数名： MainTask_thread_entry
-*描述：  电源检测控制任务
-*返回：
-*说明：
-*
-*****************************************************************************/
+/*
+*********************************************************************************************************
+*	函 数 名: MainTask_thread_entry
+*	功能说明:  
+*	形    参: 
+*	返 回 值: 无
+*********************************************************************************************************
+*/
 void MainTask_thread_entry(void *parameter)
 {
    while(1)
@@ -373,31 +341,33 @@ void MainTask_thread_entry(void *parameter)
 		rt_thread_delay(10);
 		Input_IO_check();
 		ADDR_check();
+		EEP_SaveTask();
 	}
 
 }
  
-/**************************************************************************
-*函数名： MainTask_thread_entry
-*描述：  电源检测控制任务
-*返回：
-*说明：
-*
-*****************************************************************************/
+/*
+*********************************************************************************************************
+*	函 数 名: DA_Task_thread_entry
+*	功能说明:  
+*	形    参: 
+*	返 回 值: 无
+*********************************************************************************************************
+*/
 void DA_Task_thread_entry(void *parameter)
 {
 	static uint8_t DA_RunStep = 0;
    while(1)
 	{
 	 
-		rt_thread_delay(5);
-		if(WorkSpace.WorkFlags.BIT.DA_AutoMode == 0)
+		rt_thread_delay(10);
+		if(WorkSpace.WorkFlags.bit.DA_AutoMode == 0)
 		{
-			Manu_CNTL_DAC();//手动控制
+			Manu_CNTL_DAC();//锟街讹拷锟斤拷锟斤拷
 		}
 		else
 		{
-			Auto_CNTL_DAC();//自动控制
+			Auto_CNTL_DAC();//锟皆讹拷锟斤拷锟斤拷
 		}
 		DAC_Process();//
 	}
@@ -407,13 +377,14 @@ void DA_Task_thread_entry(void *parameter)
 
 
 
-/**************************************************************************
-*函数名： APP_TaskInit
-*描述：   IO初始化
-*返回：
-*说明：
-*
-*****************************************************************************/
+/*
+*********************************************************************************************************
+*	函 数 名: APP_TaskInit
+*	功能说明:  
+*	形    参: 
+*	返 回 值: 无
+*********************************************************************************************************
+*/
 void APP_TaskInit(void)
 {
 
